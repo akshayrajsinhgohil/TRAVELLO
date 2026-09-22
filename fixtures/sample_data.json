@@ -1,0 +1,2958 @@
+[
+{
+  "model": "destinations.category",
+  "pk": 1,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.283Z",
+    "updated_at": "2026-09-21T00:49:50.283Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/cat-beaches/800/600",
+    "name": "Beaches",
+    "slug": "beaches",
+    "emoji": "🏝️",
+    "description": "Sand, salt and very little signal.",
+    "is_featured": true
+  }
+},
+{
+  "model": "destinations.category",
+  "pk": 2,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.284Z",
+    "updated_at": "2026-09-21T00:49:50.284Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/cat-mountains/800/600",
+    "name": "Mountains",
+    "slug": "mountains",
+    "emoji": "🏔️",
+    "description": "Thin air, thick memories.",
+    "is_featured": true
+  }
+},
+{
+  "model": "destinations.category",
+  "pk": 3,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.285Z",
+    "updated_at": "2026-09-21T00:49:50.285Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/cat-heritage/800/600",
+    "name": "Heritage",
+    "slug": "heritage",
+    "emoji": "🏛️",
+    "description": "Old stones with good stories.",
+    "is_featured": true
+  }
+},
+{
+  "model": "destinations.category",
+  "pk": 4,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.285Z",
+    "updated_at": "2026-09-21T00:49:50.285Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/cat-road-trips/800/600",
+    "name": "Road trips",
+    "slug": "road-trips",
+    "emoji": "🚐",
+    "description": "The detour is the point.",
+    "is_featured": true
+  }
+},
+{
+  "model": "destinations.category",
+  "pk": 5,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.286Z",
+    "updated_at": "2026-09-21T00:49:50.286Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/cat-wildlife/800/600",
+    "name": "Wildlife",
+    "slug": "wildlife",
+    "emoji": "🐘",
+    "description": "Sunrise safaris and patient waiting.",
+    "is_featured": false
+  }
+},
+{
+  "model": "destinations.category",
+  "pk": 6,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.287Z",
+    "updated_at": "2026-09-21T00:49:50.287Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/cat-nightlife/800/600",
+    "name": "Nightlife",
+    "slug": "nightlife",
+    "emoji": "🎧",
+    "description": "Cities that start after dark.",
+    "is_featured": false
+  }
+},
+{
+  "model": "destinations.category",
+  "pk": 7,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.287Z",
+    "updated_at": "2026-09-21T00:49:50.287Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/cat-wellness/800/600",
+    "name": "Wellness",
+    "slug": "wellness",
+    "emoji": "🧘",
+    "description": "Slow mornings, no itinerary guilt.",
+    "is_featured": true
+  }
+},
+{
+  "model": "destinations.category",
+  "pk": 8,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.288Z",
+    "updated_at": "2026-09-21T00:49:50.288Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/cat-adventure/800/600",
+    "name": "Adventure",
+    "slug": "adventure",
+    "emoji": "🪂",
+    "description": "For people who read this list first.",
+    "is_featured": true
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 1,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.289Z",
+    "updated_at": "2026-09-21T00:49:50.289Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-bali-indonesia/1600/1000",
+    "name": "Bali",
+    "slug": "bali-indonesia",
+    "country": "Indonesia",
+    "region": "Lesser Sunda Islands",
+    "tagline": "Rice terraces, reef breaks and the best coffee you'll have all year.",
+    "description": "Bali packs a startling amount into one island. Mornings belong to Ubud's terraced valleys and the temples tucked behind them; afternoons belong to the surf towns along the south coast. The island is small enough that you can eat breakfast in the jungle and watch the sunset from a cliff bar, and busy enough that you'll want a plan for the bits in between.",
+    "best_time_to_visit": "April to October",
+    "latitude": -8.4095,
+    "longitude": 115.1889,
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Rice terraces, reef breaks and the best coffee you'll have all year."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 2,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.300Z",
+    "updated_at": "2026-09-21T00:49:50.300Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-ladakh-india/1600/1000",
+    "name": "Ladakh",
+    "slug": "ladakh-india",
+    "country": "India",
+    "region": "Ladakh",
+    "tagline": "Cold desert, impossible passes and a sky that looks fake in photos.",
+    "description": "Ladakh sits above 3,000 metres and behaves accordingly — the light is harder, the air is thinner and distances take longer than the map suggests. That is the appeal. Monasteries cling to ridgelines, the Indus runs green through brown valleys, and the road to Pangong is still one of the great drives anywhere.",
+    "best_time_to_visit": "June to September",
+    "latitude": 34.1526,
+    "longitude": 77.5771,
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Cold desert, impossible passes and a sky that looks fake in photos."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 3,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.304Z",
+    "updated_at": "2026-09-21T00:49:50.304Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-kyoto-japan/1600/1000",
+    "name": "Kyoto",
+    "slug": "kyoto-japan",
+    "country": "Japan",
+    "region": "Kansai",
+    "tagline": "A thousand temples and the most disciplined breakfast of your life.",
+    "description": "Kyoto rewards early risers and slow walkers. Arashiyama's bamboo is a different place at 6am than at 10am, and the eastern hills hide stone lanes that most visitors never find. Come for the temples, stay for the food — this is a city where a lunch counter with six seats can change your standards.",
+    "best_time_to_visit": "March to May, October to November",
+    "latitude": 35.0116,
+    "longitude": 135.7681,
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "A thousand temples and the most disciplined breakfast of your life."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 4,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.308Z",
+    "updated_at": "2026-09-21T00:49:50.308Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-santorini-greece/1600/1000",
+    "name": "Santorini",
+    "slug": "santorini-greece",
+    "country": "Greece",
+    "region": "Cyclades",
+    "tagline": "A drowned volcano with the best dinner view in the Mediterranean.",
+    "description": "Santorini is a caldera rim you can walk end to end, with villages stacked down the cliff face and black-sand beaches on the far side. Oia gets the postcards and the crowds; the rest of the island — Pyrgos, Emporio, the wineries inland — is where the days actually get good.",
+    "best_time_to_visit": "May to June, September to October",
+    "latitude": 36.3932,
+    "longitude": 25.4615,
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "A drowned volcano with the best dinner view in the Mediterranean."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 5,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.313Z",
+    "updated_at": "2026-09-21T00:49:50.313Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-reykjavík-iceland/1600/1000",
+    "name": "Reykjavík",
+    "slug": "reykjavík-iceland",
+    "country": "Iceland",
+    "region": "Capital Region",
+    "tagline": "Waterfalls, black sand and a decent chance of the aurora.",
+    "description": "Iceland in winter is short on daylight and long on drama. The south coast delivers a waterfall every forty minutes, the glacier lagoon is genuinely surreal, and when the sky clears the aurora does the rest. Reykjavík itself is small, walkable and far warmer than the weather suggests.",
+    "best_time_to_visit": "September to March for aurora, June to August for midnight sun",
+    "latitude": 64.1466,
+    "longitude": -21.9426,
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Waterfalls, black sand and a decent chance of the aurora."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 6,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.317Z",
+    "updated_at": "2026-09-21T00:49:50.317Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-rishikesh-india/1600/1000",
+    "name": "Rishikesh",
+    "slug": "rishikesh-india",
+    "country": "India",
+    "region": "Uttarakhand",
+    "tagline": "White water, cliff jumps and the Ganga at 6am.",
+    "description": "Rishikesh is two towns in one: the ashram side, all bells and river aartis, and the adventure side upstream, where rafting companies run Grade III and IV rapids from March through June. Do both. The Himalaya starts just behind the ridge and it shows.",
+    "best_time_to_visit": "September to June",
+    "latitude": 30.0869,
+    "longitude": 78.2676,
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "White water, cliff jumps and the Ganga at 6am."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 7,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.321Z",
+    "updated_at": "2026-09-21T00:49:50.321Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-queenstown-new-zealand/1600/1000",
+    "name": "Queenstown",
+    "slug": "queenstown-new-zealand",
+    "country": "New Zealand",
+    "region": "Otago",
+    "tagline": "The adventure capital, and it is not marketing.",
+    "description": "Queenstown sits on a lake ringed by the Remarkables, and every activity you have heard of was probably invented here. Bungee, jetboats, skydives and helicopter landings on glaciers all operate within an hour of town. So does some of the best hiking in the southern hemisphere, which costs nothing.",
+    "best_time_to_visit": "December to March, June to August for ski",
+    "latitude": -45.0312,
+    "longitude": 168.6626,
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "The adventure capital, and it is not marketing."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 8,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.326Z",
+    "updated_at": "2026-09-21T00:49:50.326Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-lisbon-portugal/1600/1000",
+    "name": "Lisbon",
+    "slug": "lisbon-portugal",
+    "country": "Portugal",
+    "region": "Lisboa",
+    "tagline": "Tiled hills, tram 28 and dinner that starts at ten.",
+    "description": "Lisbon is built on seven hills and makes you feel every one of them. The reward is a city of viewpoints, azulejo façades and a food scene that has quietly become one of Europe's best. Sintra is forty minutes away by train, and the Atlantic beaches are closer than that.",
+    "best_time_to_visit": "March to June, September to October",
+    "latitude": 38.7223,
+    "longitude": -9.1393,
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Tiled hills, tram 28 and dinner that starts at ten."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 9,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.330Z",
+    "updated_at": "2026-09-21T00:49:50.330Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-cape-town-south-africa/1600/1000",
+    "name": "Cape Town",
+    "slug": "cape-town-south-africa",
+    "country": "South Africa",
+    "region": "Western Cape",
+    "tagline": "A mountain in the middle of a city, with wine country behind it.",
+    "description": "Cape Town has geography most cities would kill for: Table Mountain in the centre, two oceans on either side of the peninsula, and the Cape Winelands an hour inland. Add a serious restaurant scene and it is hard to argue with the hype.",
+    "best_time_to_visit": "November to March",
+    "latitude": -33.9249,
+    "longitude": 18.4241,
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "A mountain in the middle of a city, with wine country behind it."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 10,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.334Z",
+    "updated_at": "2026-09-21T00:49:50.334Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-goa-india/1600/1000",
+    "name": "Goa",
+    "slug": "goa-india",
+    "country": "India",
+    "region": "Goa",
+    "tagline": "North for the music, south for the silence. Choose carefully.",
+    "description": "Goa is two coastlines wearing one name. The north runs on beach clubs, flea markets and people who came for a week in 2019. The south is palm groves, empty sand and shacks that close when the owner feels like it. The hinterland — spice farms, Portuguese villages, waterfalls — is the part almost nobody sees.",
+    "best_time_to_visit": "November to February",
+    "latitude": 15.2993,
+    "longitude": 74.124,
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "North for the music, south for the silence. Choose carefully."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 11,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.339Z",
+    "updated_at": "2026-09-21T00:49:50.339Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-dubai-united-arab-emirates/1600/1000",
+    "name": "Dubai",
+    "slug": "dubai-united-arab-emirates",
+    "country": "United Arab Emirates",
+    "region": "Dubai",
+    "tagline": "Desert, skyline and a brunch culture that takes itself seriously.",
+    "description": "Dubai works best when you treat it as two trips. There is the built city — the tallest building on earth, a metro that runs on time, and shopping as a civic activity. Then there is the desert an hour out, where the dunes go orange at sunset and the noise stops entirely.",
+    "best_time_to_visit": "November to March",
+    "latitude": 25.2048,
+    "longitude": 55.2708,
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Desert, skyline and a brunch culture that takes itself seriously."
+  }
+},
+{
+  "model": "destinations.destination",
+  "pk": 12,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.343Z",
+    "updated_at": "2026-09-21T00:49:50.343Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-andaman-islands-india/1600/1000",
+    "name": "Andaman Islands",
+    "slug": "andaman-islands-india",
+    "country": "India",
+    "region": "Andaman & Nicobar",
+    "tagline": "The clearest water in India, ten hours from anywhere.",
+    "description": "The Andamans sit closer to Myanmar than to mainland India, and the water shows it — visibility on Havelock regularly passes 25 metres. Beyond the diving there is Neil Island's slow pace, the mangrove creeks, and Ross Island's colonial ruins being eaten by banyan roots.",
+    "best_time_to_visit": "October to May",
+    "latitude": 11.7401,
+    "longitude": 92.6586,
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "The clearest water in India, ten hours from anywhere."
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 1,
+  "fields": {
+    "destination": 1,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-bali-indonesia-1/1600/1000",
+    "caption": "Bali — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 2,
+  "fields": {
+    "destination": 1,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-bali-indonesia-2/1600/1000",
+    "caption": "Bali — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 3,
+  "fields": {
+    "destination": 1,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-bali-indonesia-3/1600/1000",
+    "caption": "Bali — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 4,
+  "fields": {
+    "destination": 2,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-ladakh-india-1/1600/1000",
+    "caption": "Ladakh — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 5,
+  "fields": {
+    "destination": 2,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-ladakh-india-2/1600/1000",
+    "caption": "Ladakh — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 6,
+  "fields": {
+    "destination": 2,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-ladakh-india-3/1600/1000",
+    "caption": "Ladakh — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 7,
+  "fields": {
+    "destination": 3,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-kyoto-japan-1/1600/1000",
+    "caption": "Kyoto — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 8,
+  "fields": {
+    "destination": 3,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-kyoto-japan-2/1600/1000",
+    "caption": "Kyoto — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 9,
+  "fields": {
+    "destination": 3,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-kyoto-japan-3/1600/1000",
+    "caption": "Kyoto — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 10,
+  "fields": {
+    "destination": 4,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-santorini-greece-1/1600/1000",
+    "caption": "Santorini — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 11,
+  "fields": {
+    "destination": 4,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-santorini-greece-2/1600/1000",
+    "caption": "Santorini — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 12,
+  "fields": {
+    "destination": 4,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-santorini-greece-3/1600/1000",
+    "caption": "Santorini — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 13,
+  "fields": {
+    "destination": 5,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-reykjavík-iceland-1/1600/1000",
+    "caption": "Reykjavík — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 14,
+  "fields": {
+    "destination": 5,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-reykjavík-iceland-2/1600/1000",
+    "caption": "Reykjavík — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 15,
+  "fields": {
+    "destination": 5,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-reykjavík-iceland-3/1600/1000",
+    "caption": "Reykjavík — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 16,
+  "fields": {
+    "destination": 6,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-rishikesh-india-1/1600/1000",
+    "caption": "Rishikesh — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 17,
+  "fields": {
+    "destination": 6,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-rishikesh-india-2/1600/1000",
+    "caption": "Rishikesh — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 18,
+  "fields": {
+    "destination": 6,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-rishikesh-india-3/1600/1000",
+    "caption": "Rishikesh — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 19,
+  "fields": {
+    "destination": 7,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-queenstown-new-zealand-1/1600/1000",
+    "caption": "Queenstown — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 20,
+  "fields": {
+    "destination": 7,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-queenstown-new-zealand-2/1600/1000",
+    "caption": "Queenstown — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 21,
+  "fields": {
+    "destination": 7,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-queenstown-new-zealand-3/1600/1000",
+    "caption": "Queenstown — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 22,
+  "fields": {
+    "destination": 8,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-lisbon-portugal-1/1600/1000",
+    "caption": "Lisbon — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 23,
+  "fields": {
+    "destination": 8,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-lisbon-portugal-2/1600/1000",
+    "caption": "Lisbon — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 24,
+  "fields": {
+    "destination": 8,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-lisbon-portugal-3/1600/1000",
+    "caption": "Lisbon — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 25,
+  "fields": {
+    "destination": 9,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-cape-town-south-africa-1/1600/1000",
+    "caption": "Cape Town — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 26,
+  "fields": {
+    "destination": 9,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-cape-town-south-africa-2/1600/1000",
+    "caption": "Cape Town — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 27,
+  "fields": {
+    "destination": 9,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-cape-town-south-africa-3/1600/1000",
+    "caption": "Cape Town — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 28,
+  "fields": {
+    "destination": 10,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-goa-india-1/1600/1000",
+    "caption": "Goa — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 29,
+  "fields": {
+    "destination": 10,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-goa-india-2/1600/1000",
+    "caption": "Goa — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 30,
+  "fields": {
+    "destination": 10,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-goa-india-3/1600/1000",
+    "caption": "Goa — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 31,
+  "fields": {
+    "destination": 11,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-dubai-united-arab-emirates-1/1600/1000",
+    "caption": "Dubai — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 32,
+  "fields": {
+    "destination": 11,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-dubai-united-arab-emirates-2/1600/1000",
+    "caption": "Dubai — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 33,
+  "fields": {
+    "destination": 11,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-dubai-united-arab-emirates-3/1600/1000",
+    "caption": "Dubai — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 34,
+  "fields": {
+    "destination": 12,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-andaman-islands-india-1/1600/1000",
+    "caption": "Andaman Islands — the wide view",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 35,
+  "fields": {
+    "destination": 12,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-andaman-islands-india-2/1600/1000",
+    "caption": "Andaman Islands — street level",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.destinationimage",
+  "pk": 36,
+  "fields": {
+    "destination": 12,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/dest-andaman-islands-india-3/1600/1000",
+    "caption": "Andaman Islands — at golden hour",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 1,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.292Z",
+    "updated_at": "2026-09-21T00:49:50.292Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-bali-unfiltered-ubud-canggu-the-nusa-islands/1600/1000",
+    "destination": 1,
+    "title": "Bali Unfiltered: Ubud, Canggu & the Nusa Islands",
+    "slug": "bali-unfiltered-ubud-canggu-the-nusa-islands",
+    "summary": "Nine days across jungle, surf town and island, at a pace that still lets you sleep in.",
+    "description": "Nine days across jungle, surf town and island, at a pace that still lets you sleep in.\n\nBali packs a startling amount into one island. Mornings belong to Ubud's terraced valleys and the temples tucked behind them; afternoons belong to the surf towns along the south coast. The island is small enough that you can eat breakfast in the jungle and watch the sunset from a cliff bar, and busy enough that you'll want a plan for the bits in between.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "68900.00",
+    "discount_price": "58900.00",
+    "duration_days": 9,
+    "duration_nights": 8,
+    "max_guests": 14,
+    "min_guests": 1,
+    "difficulty": "easy",
+    "inclusions": "8 nights in boutique stays, twin sharing\nDaily breakfast and 4 dinners\nAll airport and inter-island transfers\nSurf lesson with board hire\nEnglish-speaking local host for the whole trip",
+    "exclusions": "International flights\nIndonesian visa on arrival\nTravel insurance\nAnything at the bar after dinner",
+    "highlights": "Sunrise at Tegallalang before the tour buses arrive\nA surf lesson in Canggu with a coach who does not shout\nTwo nights on Nusa Penida with a private boat to Kelingking\nA silent-morning session at a working Balinese temple",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Nine days across jungle, surf town and island, at a pace that still lets you sleep in.",
+    "categories": [
+      1,
+      7
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 2,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.297Z",
+    "updated_at": "2026-09-21T00:49:50.297Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ubud-reset-five-slow-days/1600/1000",
+    "destination": 1,
+    "title": "Ubud Reset: Five Slow Days",
+    "slug": "ubud-reset-five-slow-days",
+    "summary": "Yoga, waterfalls and long lunches. No alarm clocks unless you set one.",
+    "description": "Yoga, waterfalls and long lunches. No alarm clocks unless you set one.\n\nBali packs a startling amount into one island. Mornings belong to Ubud's terraced valleys and the temples tucked behind them; afternoons belong to the surf towns along the south coast. The island is small enough that you can eat breakfast in the jungle and watch the sunset from a cliff bar, and busy enough that you'll want a plan for the bits in between.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "34500.00",
+    "discount_price": null,
+    "duration_days": 5,
+    "duration_nights": 4,
+    "max_guests": 10,
+    "min_guests": 1,
+    "difficulty": "easy",
+    "inclusions": "4 nights in a valley-view room\nDaily breakfast and yoga\nAirport transfers\nOne spa treatment",
+    "exclusions": "Flights\nVisa\nLunches and dinners",
+    "highlights": "Daily morning yoga overlooking the Ayung valley\nA Balinese healer session, if you want one\nTwo waterfall mornings with no crowds",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Yoga, waterfalls and long lunches. No alarm clocks unless you set one.",
+    "categories": [
+      7
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 3,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.301Z",
+    "updated_at": "2026-09-21T00:49:50.301Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ladakh-overland-leh-to-pangong-to-nubra/1600/1000",
+    "destination": 2,
+    "title": "Ladakh Overland: Leh to Pangong to Nubra",
+    "slug": "ladakh-overland-leh-to-pangong-to-nubra",
+    "summary": "Seven days, three valleys and two of the highest motorable passes on earth.",
+    "description": "Seven days, three valleys and two of the highest motorable passes on earth.\n\nLadakh sits above 3,000 metres and behaves accordingly — the light is harder, the air is thinner and distances take longer than the map suggests. That is the appeal. Monasteries cling to ridgelines, the Indus runs green through brown valleys, and the road to Pangong is still one of the great drives anywhere.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "52000.00",
+    "discount_price": "46800.00",
+    "duration_days": 7,
+    "duration_nights": 6,
+    "max_guests": 12,
+    "min_guests": 1,
+    "difficulty": "moderate",
+    "inclusions": "6 nights (hotels in Leh, deluxe camps elsewhere)\nAll meals from dinner on day 1\nPrivate vehicle with an oxygen cylinder on board\nInner Line Permits\nMountain-trained driver-guide",
+    "exclusions": "Flights to Leh\nMonastery camera fees\nPersonal gear",
+    "highlights": "Two nights camped beside Pangong Tso\nKhardung La and Chang La on the same trip\nSunrise at Thiksey monastery during morning prayers\nDouble-humped camels on the Hunder dunes",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Seven days, three valleys and two of the highest motorable passes on earth.",
+    "categories": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 4,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.306Z",
+    "updated_at": "2026-09-21T00:49:50.306Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-kyoto-in-autumn-temples-trails-kaiseki/1600/1000",
+    "destination": 3,
+    "title": "Kyoto in Autumn: Temples, Trails & Kaiseki",
+    "slug": "kyoto-in-autumn-temples-trails-kaiseki",
+    "summary": "Six days chasing maple season through the eastern hills, with a serious food itinerary.",
+    "description": "Six days chasing maple season through the eastern hills, with a serious food itinerary.\n\nKyoto rewards early risers and slow walkers. Arashiyama's bamboo is a different place at 6am than at 10am, and the eastern hills hide stone lanes that most visitors never find. Come for the temples, stay for the food — this is a city where a lunch counter with six seats can change your standards.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "129000.00",
+    "discount_price": "114900.00",
+    "duration_days": 6,
+    "duration_nights": 5,
+    "max_guests": 8,
+    "min_guests": 1,
+    "difficulty": "easy",
+    "inclusions": "5 nights in a restored machiya, twin sharing\nDaily breakfast, 2 kaiseki dinners\nJR transfers from Kansai airport\nPrivate guide for 3 of the 6 days\nAll temple entries",
+    "exclusions": "International flights\nLunches\nShinkansen day trips",
+    "highlights": "Arashiyama bamboo grove before sunrise, genuinely empty\nA full kaiseki dinner with a chef who explains every course\nThe Philosopher's Path at peak colour\nA tea ceremony in a private machiya townhouse",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Six days chasing maple season through the eastern hills, with a serious food itinerary.",
+    "categories": [
+      3
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 5,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.310Z",
+    "updated_at": "2026-09-21T00:49:50.310Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-santorini-naxos-two-islands-one-ferry/1600/1000",
+    "destination": 4,
+    "title": "Santorini & Naxos: Two Islands, One Ferry",
+    "slug": "santorini-naxos-two-islands-one-ferry",
+    "summary": "Eight days pairing the famous caldera with the island Greeks actually holiday on.",
+    "description": "Eight days pairing the famous caldera with the island Greeks actually holiday on.\n\nSantorini is a caldera rim you can walk end to end, with villages stacked down the cliff face and black-sand beaches on the far side. Oia gets the postcards and the crowds; the rest of the island — Pyrgos, Emporio, the wineries inland — is where the days actually get good.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "148000.00",
+    "discount_price": null,
+    "duration_days": 8,
+    "duration_nights": 7,
+    "max_guests": 10,
+    "min_guests": 1,
+    "difficulty": "easy",
+    "inclusions": "7 nights (4 Santorini, 3 Naxos)\nDaily breakfast\nInter-island ferry tickets\nCatamaran day with lunch\nWinery tour and tasting",
+    "exclusions": "Flights\nMost dinners\nScooter or car hire on Naxos",
+    "highlights": "The Fira-to-Oia caldera walk, done early and downhill\nA catamaran day with swimming stops at the hot springs\nAssyrtiko tasting at a family winery inland\nThree nights on Naxos, where dinner costs a third as much",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Eight days pairing the famous caldera with the island Greeks actually holiday on.",
+    "categories": [
+      1
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 6,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.314Z",
+    "updated_at": "2026-09-21T00:49:50.314Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-icelands-south-coast-northern-lights/1600/1000",
+    "destination": 5,
+    "title": "Iceland's South Coast & Northern Lights",
+    "slug": "icelands-south-coast-northern-lights",
+    "summary": "Six winter days from Reykjavík to Jökulsárlón, with three aurora nights built in.",
+    "description": "Six winter days from Reykjavík to Jökulsárlón, with three aurora nights built in.\n\nIceland in winter is short on daylight and long on drama. The south coast delivers a waterfall every forty minutes, the glacier lagoon is genuinely surreal, and when the sky clears the aurora does the rest. Reykjavík itself is small, walkable and far warmer than the weather suggests.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "172000.00",
+    "discount_price": "159000.00",
+    "duration_days": 6,
+    "duration_nights": 5,
+    "max_guests": 12,
+    "min_guests": 1,
+    "difficulty": "moderate",
+    "inclusions": "5 nights including 2 in a remote aurora-view lodge\nDaily breakfast and 3 dinners\n4x4 transport with a glacier-certified guide\nGlacier hike with all technical gear\nBlue Lagoon entry on the final day",
+    "exclusions": "Flights\nLunches\nAlcohol",
+    "highlights": "Walking behind Seljalandsfoss in full winter kit\nIcebergs at Jökulsárlón and the Diamond Beach at sunrise\nA glacier hike on Sólheimajökull with crampons\nThree aurora nights outside the city's light dome",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Six winter days from Reykjavík to Jökulsárlón, with three aurora nights built in.",
+    "categories": [
+      8
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 7,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.319Z",
+    "updated_at": "2026-09-21T00:49:50.319Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-rishikesh-weekend-rapids-riverside-camp/1600/1000",
+    "destination": 6,
+    "title": "Rishikesh Weekend: Rapids & Riverside Camp",
+    "slug": "rishikesh-weekend-rapids-riverside-camp",
+    "summary": "Three days of rafting, cliff jumping and bonfires on the sand.",
+    "description": "Three days of rafting, cliff jumping and bonfires on the sand.\n\nRishikesh is two towns in one: the ashram side, all bells and river aartis, and the adventure side upstream, where rafting companies run Grade III and IV rapids from March through June. Do both. The Himalaya starts just behind the ridge and it shows.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "8900.00",
+    "discount_price": "7400.00",
+    "duration_days": 3,
+    "duration_nights": 2,
+    "max_guests": 20,
+    "min_guests": 2,
+    "difficulty": "moderate",
+    "inclusions": "2 nights in riverside Swiss tents\nAll meals from lunch day 1\nRafting with certified guides and all gear\nBonfire and music each night",
+    "exclusions": "Transport to Rishikesh\nBungee jumping\nPersonal expenses",
+    "highlights": "16km of Grade III rapids from Shivpuri\nCliff jumping at the Body Surfing stretch\nRiverside tents on a private beach\nThe Parmarth Niketan evening aarti",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Three days of rafting, cliff jumping and bonfires on the sand.",
+    "categories": [
+      8
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 8,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.323Z",
+    "updated_at": "2026-09-21T00:49:50.323Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-queenstown-milford-sound/1600/1000",
+    "destination": 7,
+    "title": "Queenstown & Milford Sound",
+    "slug": "queenstown-milford-sound",
+    "summary": "Seven days of alpine hiking, one very big fjord and as much adrenaline as you order.",
+    "description": "Seven days of alpine hiking, one very big fjord and as much adrenaline as you order.\n\nQueenstown sits on a lake ringed by the Remarkables, and every activity you have heard of was probably invented here. Bungee, jetboats, skydives and helicopter landings on glaciers all operate within an hour of town. So does some of the best hiking in the southern hemisphere, which costs nothing.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "195000.00",
+    "discount_price": null,
+    "duration_days": 7,
+    "duration_nights": 6,
+    "max_guests": 10,
+    "min_guests": 1,
+    "difficulty": "challenging",
+    "inclusions": "6 nights in Queenstown and Te Anau\nDaily breakfast and 3 dinners\nMilford Sound cruise and coach\nGuided hiking days with a DOC-licensed guide\nOne activity voucher (bungee, jet boat or skydive)",
+    "exclusions": "Flights\nExtra activities\nSki passes",
+    "highlights": "The Routeburn Track day section\nA cruise to the Tasman Sea through Milford Sound\nBen Lomond summit, if the group is up for it\nOne included adrenaline activity of your choice",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Seven days of alpine hiking, one very big fjord and as much adrenaline as you order.",
+    "categories": [
+      8,
+      2
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 9,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.327Z",
+    "updated_at": "2026-09-21T00:49:50.327Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-lisbon-sintra-the-alentejo-coast/1600/1000",
+    "destination": 8,
+    "title": "Lisbon, Sintra & the Alentejo Coast",
+    "slug": "lisbon-sintra-the-alentejo-coast",
+    "summary": "Six days of miradouros, palaces and empty Atlantic beaches an hour south.",
+    "description": "Six days of miradouros, palaces and empty Atlantic beaches an hour south.\n\nLisbon is built on seven hills and makes you feel every one of them. The reward is a city of viewpoints, azulejo façades and a food scene that has quietly become one of Europe's best. Sintra is forty minutes away by train, and the Atlantic beaches are closer than that.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "96500.00",
+    "discount_price": "88900.00",
+    "duration_days": 6,
+    "duration_nights": 5,
+    "max_guests": 12,
+    "min_guests": 1,
+    "difficulty": "easy",
+    "inclusions": "5 nights (3 Lisbon, 2 Comporta)\nDaily breakfast and 2 dinners\nSintra day with a private driver\nFood walk in Alfama\nTrain and transfer tickets",
+    "exclusions": "Flights\nMost meals\nSurf lessons in Comporta",
+    "highlights": "A tasca crawl through Alfama with a fado stop\nPena Palace and the Quinta da Regaleira wells at Sintra\nTwo days on the Alentejo coast, which is nearly empty\nPastéis de Belém, eaten standing up like a local",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Six days of miradouros, palaces and empty Atlantic beaches an hour south.",
+    "categories": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 10,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.331Z",
+    "updated_at": "2026-09-21T00:49:50.331Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-cape-peninsula-safari-combo/1600/1000",
+    "destination": 9,
+    "title": "Cape Peninsula & Safari Combo",
+    "slug": "cape-peninsula-safari-combo",
+    "summary": "Ten days pairing Table Mountain and the Winelands with three nights in a private game reserve.",
+    "description": "Ten days pairing Table Mountain and the Winelands with three nights in a private game reserve.\n\nCape Town has geography most cities would kill for: Table Mountain in the centre, two oceans on either side of the peninsula, and the Cape Winelands an hour inland. Add a serious restaurant scene and it is hard to argue with the hype.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "215000.00",
+    "discount_price": "198000.00",
+    "duration_days": 10,
+    "duration_nights": 9,
+    "max_guests": 8,
+    "min_guests": 1,
+    "difficulty": "moderate",
+    "inclusions": "9 nights including 3 full-board at a game lodge\nDaily breakfast, all meals on safari\nAll game drives with a professional ranger\nPrivate vehicle for the peninsula and Winelands days\nInternal flight to the reserve",
+    "exclusions": "International flights\nMost city dinners\nWine purchases",
+    "highlights": "Sunrise hike up Platteklip Gorge, down by cable car\nSix game drives in a malaria-free private reserve\nCape Point, Boulders Beach penguins and Chapman's Peak in one day\nTwo days tasting through Stellenbosch and Franschhoek",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Ten days pairing Table Mountain and the Winelands with three nights in a private game reserve.",
+    "categories": [
+      8,
+      5
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 11,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.336Z",
+    "updated_at": "2026-09-21T00:49:50.336Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-south-goa-slow-palolem-patnem-the-backroads/1600/1000",
+    "destination": 10,
+    "title": "South Goa Slow: Palolem, Patnem & the Backroads",
+    "slug": "south-goa-slow-palolem-patnem-the-backroads",
+    "summary": "Five days on the quiet coast, with a scooter and no fixed plans.",
+    "description": "Five days on the quiet coast, with a scooter and no fixed plans.\n\nGoa is two coastlines wearing one name. The north runs on beach clubs, flea markets and people who came for a week in 2019. The south is palm groves, empty sand and shacks that close when the owner feels like it. The hinterland — spice farms, Portuguese villages, waterfalls — is the part almost nobody sees.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "18500.00",
+    "discount_price": "15900.00",
+    "duration_days": 5,
+    "duration_nights": 4,
+    "max_guests": 16,
+    "min_guests": 1,
+    "difficulty": "easy",
+    "inclusions": "4 nights in sea-facing huts\nDaily breakfast\nScooter hire for the whole stay\nAirport transfers\nSpice farm tour with lunch",
+    "exclusions": "Flights\nFuel\nDinners",
+    "highlights": "Beach huts twenty steps from the water at Patnem\nA kayak out to Butterfly Beach at sunrise\nSpice plantation lunch in the Western Ghats foothills\nScooter hire included, because that is how Goa works",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": true,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Five days on the quiet coast, with a scooter and no fixed plans.",
+    "categories": [
+      1
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 12,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.340Z",
+    "updated_at": "2026-09-21T00:49:50.340Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-dubai-in-four-skyline-souks-desert-camp/1600/1000",
+    "destination": 11,
+    "title": "Dubai in Four: Skyline, Souks & Desert Camp",
+    "slug": "dubai-in-four-skyline-souks-desert-camp",
+    "summary": "A long weekend split between the top of the Burj and a night in the dunes.",
+    "description": "A long weekend split between the top of the Burj and a night in the dunes.\n\nDubai works best when you treat it as two trips. There is the built city — the tallest building on earth, a metro that runs on time, and shopping as a civic activity. Then there is the desert an hour out, where the dunes go orange at sunset and the noise stops entirely.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "42000.00",
+    "discount_price": null,
+    "duration_days": 4,
+    "duration_nights": 3,
+    "max_guests": 18,
+    "min_guests": 1,
+    "difficulty": "easy",
+    "inclusions": "2 nights in Downtown, 1 night desert camp\nDaily breakfast and the camp dinner\nBurj Khalifa 148 tickets\nDesert safari with a 4x4 and dune driver",
+    "exclusions": "Flights\nVisa\nMost meals\nWater park tickets",
+    "highlights": "Burj Khalifa level 148 at golden hour\nAn overnight desert camp with dune bashing and a fire\nOld Dubai: the gold souk, the spice souk and an abra across the creek\nA morning at Kite Beach with the skyline behind you",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "A long weekend split between the top of the Burj and a night in the dunes.",
+    "categories": [
+      6
+    ]
+  }
+},
+{
+  "model": "destinations.package",
+  "pk": 13,
+  "fields": {
+    "created_at": "2026-09-21T00:49:50.344Z",
+    "updated_at": "2026-09-21T00:49:50.344Z",
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-havelock-neil-reefs-radhanagar-and-ross/1600/1000",
+    "destination": 12,
+    "title": "Havelock & Neil: Reefs, Radhanagar and Ross",
+    "slug": "havelock-neil-reefs-radhanagar-and-ross",
+    "summary": "Six days of diving, snorkelling and beaches that make the flight worth it.",
+    "description": "Six days of diving, snorkelling and beaches that make the flight worth it.\n\nThe Andamans sit closer to Myanmar than to mainland India, and the water shows it — visibility on Havelock regularly passes 25 metres. Beyond the diving there is Neil Island's slow pace, the mangrove creeks, and Ross Island's colonial ruins being eaten by banyan roots.\n\nGroup sizes stay small on purpose, every departure runs with a local host, and the itinerary below is the one you actually get — we do not quietly swap hotels or drop stops to save money.",
+    "price": "44500.00",
+    "discount_price": "39900.00",
+    "duration_days": 6,
+    "duration_nights": 5,
+    "max_guests": 14,
+    "min_guests": 1,
+    "difficulty": "easy",
+    "inclusions": "5 nights across Havelock and Neil\nDaily breakfast\nAll ferry tickets\nTwo guided dives with certified instructors\nAirport and jetty transfers",
+    "exclusions": "Flights to Port Blair\nDinners\nExtra dives",
+    "highlights": "Two dives at Nemo Reef and the Wall, gear included\nSunset at Radhanagar, regularly rated Asia's best beach\nThe natural rock bridge at Neil at low tide\nRoss Island's ruins and the light-and-sound show",
+    "available_from": "2026-09-21",
+    "available_to": "2027-09-21",
+    "is_featured": false,
+    "is_active": true,
+    "meta_title": "",
+    "meta_description": "Six days of diving, snorkelling and beaches that make the flight worth it.",
+    "categories": [
+      8,
+      1
+    ]
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 1,
+  "fields": {
+    "package": 1,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-bali-unfiltered-ubud-canggu-the-nusa-islands-1/1600/1000",
+    "caption": "Bali Unfiltered: Ubud, Canggu & the Nusa Islands — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 2,
+  "fields": {
+    "package": 1,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-bali-unfiltered-ubud-canggu-the-nusa-islands-2/1600/1000",
+    "caption": "Bali Unfiltered: Ubud, Canggu & the Nusa Islands — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 3,
+  "fields": {
+    "package": 1,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-bali-unfiltered-ubud-canggu-the-nusa-islands-3/1600/1000",
+    "caption": "Bali Unfiltered: Ubud, Canggu & the Nusa Islands — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 4,
+  "fields": {
+    "package": 1,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-bali-unfiltered-ubud-canggu-the-nusa-islands-4/1600/1000",
+    "caption": "Bali Unfiltered: Ubud, Canggu & the Nusa Islands — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 5,
+  "fields": {
+    "package": 2,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ubud-reset-five-slow-days-1/1600/1000",
+    "caption": "Ubud Reset: Five Slow Days — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 6,
+  "fields": {
+    "package": 2,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ubud-reset-five-slow-days-2/1600/1000",
+    "caption": "Ubud Reset: Five Slow Days — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 7,
+  "fields": {
+    "package": 2,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ubud-reset-five-slow-days-3/1600/1000",
+    "caption": "Ubud Reset: Five Slow Days — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 8,
+  "fields": {
+    "package": 2,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ubud-reset-five-slow-days-4/1600/1000",
+    "caption": "Ubud Reset: Five Slow Days — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 9,
+  "fields": {
+    "package": 3,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ladakh-overland-leh-to-pangong-to-nubra-1/1600/1000",
+    "caption": "Ladakh Overland: Leh to Pangong to Nubra — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 10,
+  "fields": {
+    "package": 3,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ladakh-overland-leh-to-pangong-to-nubra-2/1600/1000",
+    "caption": "Ladakh Overland: Leh to Pangong to Nubra — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 11,
+  "fields": {
+    "package": 3,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ladakh-overland-leh-to-pangong-to-nubra-3/1600/1000",
+    "caption": "Ladakh Overland: Leh to Pangong to Nubra — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 12,
+  "fields": {
+    "package": 3,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-ladakh-overland-leh-to-pangong-to-nubra-4/1600/1000",
+    "caption": "Ladakh Overland: Leh to Pangong to Nubra — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 13,
+  "fields": {
+    "package": 4,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-kyoto-in-autumn-temples-trails-kaiseki-1/1600/1000",
+    "caption": "Kyoto in Autumn: Temples, Trails & Kaiseki — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 14,
+  "fields": {
+    "package": 4,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-kyoto-in-autumn-temples-trails-kaiseki-2/1600/1000",
+    "caption": "Kyoto in Autumn: Temples, Trails & Kaiseki — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 15,
+  "fields": {
+    "package": 4,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-kyoto-in-autumn-temples-trails-kaiseki-3/1600/1000",
+    "caption": "Kyoto in Autumn: Temples, Trails & Kaiseki — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 16,
+  "fields": {
+    "package": 4,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-kyoto-in-autumn-temples-trails-kaiseki-4/1600/1000",
+    "caption": "Kyoto in Autumn: Temples, Trails & Kaiseki — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 17,
+  "fields": {
+    "package": 5,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-santorini-naxos-two-islands-one-ferry-1/1600/1000",
+    "caption": "Santorini & Naxos: Two Islands, One Ferry — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 18,
+  "fields": {
+    "package": 5,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-santorini-naxos-two-islands-one-ferry-2/1600/1000",
+    "caption": "Santorini & Naxos: Two Islands, One Ferry — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 19,
+  "fields": {
+    "package": 5,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-santorini-naxos-two-islands-one-ferry-3/1600/1000",
+    "caption": "Santorini & Naxos: Two Islands, One Ferry — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 20,
+  "fields": {
+    "package": 5,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-santorini-naxos-two-islands-one-ferry-4/1600/1000",
+    "caption": "Santorini & Naxos: Two Islands, One Ferry — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 21,
+  "fields": {
+    "package": 6,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-icelands-south-coast-northern-lights-1/1600/1000",
+    "caption": "Iceland's South Coast & Northern Lights — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 22,
+  "fields": {
+    "package": 6,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-icelands-south-coast-northern-lights-2/1600/1000",
+    "caption": "Iceland's South Coast & Northern Lights — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 23,
+  "fields": {
+    "package": 6,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-icelands-south-coast-northern-lights-3/1600/1000",
+    "caption": "Iceland's South Coast & Northern Lights — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 24,
+  "fields": {
+    "package": 6,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-icelands-south-coast-northern-lights-4/1600/1000",
+    "caption": "Iceland's South Coast & Northern Lights — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 25,
+  "fields": {
+    "package": 7,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-rishikesh-weekend-rapids-riverside-camp-1/1600/1000",
+    "caption": "Rishikesh Weekend: Rapids & Riverside Camp — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 26,
+  "fields": {
+    "package": 7,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-rishikesh-weekend-rapids-riverside-camp-2/1600/1000",
+    "caption": "Rishikesh Weekend: Rapids & Riverside Camp — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 27,
+  "fields": {
+    "package": 7,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-rishikesh-weekend-rapids-riverside-camp-3/1600/1000",
+    "caption": "Rishikesh Weekend: Rapids & Riverside Camp — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 28,
+  "fields": {
+    "package": 7,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-rishikesh-weekend-rapids-riverside-camp-4/1600/1000",
+    "caption": "Rishikesh Weekend: Rapids & Riverside Camp — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 29,
+  "fields": {
+    "package": 8,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-queenstown-milford-sound-1/1600/1000",
+    "caption": "Queenstown & Milford Sound — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 30,
+  "fields": {
+    "package": 8,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-queenstown-milford-sound-2/1600/1000",
+    "caption": "Queenstown & Milford Sound — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 31,
+  "fields": {
+    "package": 8,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-queenstown-milford-sound-3/1600/1000",
+    "caption": "Queenstown & Milford Sound — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 32,
+  "fields": {
+    "package": 8,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-queenstown-milford-sound-4/1600/1000",
+    "caption": "Queenstown & Milford Sound — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 33,
+  "fields": {
+    "package": 9,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-lisbon-sintra-the-alentejo-coast-1/1600/1000",
+    "caption": "Lisbon, Sintra & the Alentejo Coast — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 34,
+  "fields": {
+    "package": 9,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-lisbon-sintra-the-alentejo-coast-2/1600/1000",
+    "caption": "Lisbon, Sintra & the Alentejo Coast — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 35,
+  "fields": {
+    "package": 9,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-lisbon-sintra-the-alentejo-coast-3/1600/1000",
+    "caption": "Lisbon, Sintra & the Alentejo Coast — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 36,
+  "fields": {
+    "package": 9,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-lisbon-sintra-the-alentejo-coast-4/1600/1000",
+    "caption": "Lisbon, Sintra & the Alentejo Coast — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 37,
+  "fields": {
+    "package": 10,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-cape-peninsula-safari-combo-1/1600/1000",
+    "caption": "Cape Peninsula & Safari Combo — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 38,
+  "fields": {
+    "package": 10,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-cape-peninsula-safari-combo-2/1600/1000",
+    "caption": "Cape Peninsula & Safari Combo — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 39,
+  "fields": {
+    "package": 10,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-cape-peninsula-safari-combo-3/1600/1000",
+    "caption": "Cape Peninsula & Safari Combo — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 40,
+  "fields": {
+    "package": 10,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-cape-peninsula-safari-combo-4/1600/1000",
+    "caption": "Cape Peninsula & Safari Combo — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 41,
+  "fields": {
+    "package": 11,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-south-goa-slow-palolem-patnem-the-backroads-1/1600/1000",
+    "caption": "South Goa Slow: Palolem, Patnem & the Backroads — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 42,
+  "fields": {
+    "package": 11,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-south-goa-slow-palolem-patnem-the-backroads-2/1600/1000",
+    "caption": "South Goa Slow: Palolem, Patnem & the Backroads — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 43,
+  "fields": {
+    "package": 11,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-south-goa-slow-palolem-patnem-the-backroads-3/1600/1000",
+    "caption": "South Goa Slow: Palolem, Patnem & the Backroads — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 44,
+  "fields": {
+    "package": 11,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-south-goa-slow-palolem-patnem-the-backroads-4/1600/1000",
+    "caption": "South Goa Slow: Palolem, Patnem & the Backroads — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 45,
+  "fields": {
+    "package": 12,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-dubai-in-four-skyline-souks-desert-camp-1/1600/1000",
+    "caption": "Dubai in Four: Skyline, Souks & Desert Camp — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 46,
+  "fields": {
+    "package": 12,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-dubai-in-four-skyline-souks-desert-camp-2/1600/1000",
+    "caption": "Dubai in Four: Skyline, Souks & Desert Camp — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 47,
+  "fields": {
+    "package": 12,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-dubai-in-four-skyline-souks-desert-camp-3/1600/1000",
+    "caption": "Dubai in Four: Skyline, Souks & Desert Camp — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 48,
+  "fields": {
+    "package": 12,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-dubai-in-four-skyline-souks-desert-camp-4/1600/1000",
+    "caption": "Dubai in Four: Skyline, Souks & Desert Camp — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 49,
+  "fields": {
+    "package": 13,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-havelock-neil-reefs-radhanagar-and-ross-1/1600/1000",
+    "caption": "Havelock & Neil: Reefs, Radhanagar and Ross — photo 1",
+    "order": 1
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 50,
+  "fields": {
+    "package": 13,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-havelock-neil-reefs-radhanagar-and-ross-2/1600/1000",
+    "caption": "Havelock & Neil: Reefs, Radhanagar and Ross — photo 2",
+    "order": 2
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 51,
+  "fields": {
+    "package": 13,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-havelock-neil-reefs-radhanagar-and-ross-3/1600/1000",
+    "caption": "Havelock & Neil: Reefs, Radhanagar and Ross — photo 3",
+    "order": 3
+  }
+},
+{
+  "model": "destinations.packageimage",
+  "pk": 52,
+  "fields": {
+    "package": 13,
+    "image": "",
+    "image_url": "https://picsum.photos/seed/trip-havelock-neil-reefs-radhanagar-and-ross-4/1600/1000",
+    "caption": "Havelock & Neil: Reefs, Radhanagar and Ross — photo 4",
+    "order": 4
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 1,
+  "fields": {
+    "package": 1,
+    "day_number": 1,
+    "title": "Land in Denpasar, drift to Ubud",
+    "description": "Your host meets you at arrivals and drives you north. Nothing is scheduled tonight beyond dinner on a terrace above the river valley.",
+    "meals": "Dinner",
+    "stay": "Komaneka-style jungle suite, Ubud"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 2,
+  "fields": {
+    "package": 1,
+    "day_number": 2,
+    "title": "Terraces at first light",
+    "description": "Out by 5:30am for Tegallalang while the mist still sits in the valley. Back for a long breakfast, then a free afternoon for the Ubud market or a nap — both defensible.",
+    "meals": "Breakfast",
+    "stay": "Ubud"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 3,
+  "fields": {
+    "package": 1,
+    "day_number": 3,
+    "title": "Temples and the Campuhan ridge",
+    "description": "A morning at Tirta Empul, an afternoon walk along the ridge, and a cooking session with a family in Penestanan.",
+    "meals": "Breakfast, dinner",
+    "stay": "Ubud"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 4,
+  "fields": {
+    "package": 1,
+    "day_number": 4,
+    "title": "South to Canggu",
+    "description": "A two-hour drive to the coast. Check in, then your first surf lesson on the beach break at Batu Bolong.",
+    "meals": "Breakfast",
+    "stay": "Canggu"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 5,
+  "fields": {
+    "package": 1,
+    "day_number": 5,
+    "title": "Surf, eat, repeat",
+    "description": "Second surf session at dawn. The rest of the day is deliberately empty — Canggu rewards wandering.",
+    "meals": "Breakfast",
+    "stay": "Canggu"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 6,
+  "fields": {
+    "package": 1,
+    "day_number": 6,
+    "title": "Boat to Nusa Penida",
+    "description": "Fast boat from Sanur. The island is rougher than the mainland and far emptier.",
+    "meals": "Breakfast, dinner",
+    "stay": "Nusa Penida"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 7,
+  "fields": {
+    "package": 1,
+    "day_number": 7,
+    "title": "Kelingking and the west coast",
+    "description": "Private boat around the cliffs, snorkelling with manta rays at Manta Point if the swell allows.",
+    "meals": "Breakfast, lunch",
+    "stay": "Nusa Penida"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 8,
+  "fields": {
+    "package": 1,
+    "day_number": 8,
+    "title": "Back to the mainland",
+    "description": "Return boat and a slow final evening in Seminyak, with dinner somewhere loud and good.",
+    "meals": "Breakfast, dinner",
+    "stay": "Seminyak"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 9,
+  "fields": {
+    "package": 1,
+    "day_number": 9,
+    "title": "Fly home",
+    "description": "Late checkout and an airport transfer whenever your flight goes.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 10,
+  "fields": {
+    "package": 2,
+    "day_number": 1,
+    "title": "Arrive and exhale",
+    "description": "Transfer from the airport, an orientation walk, and dinner in the garden.",
+    "meals": "Dinner",
+    "stay": "Ubud"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 11,
+  "fields": {
+    "package": 2,
+    "day_number": 2,
+    "title": "Yoga and the Ayung valley",
+    "description": "Morning practice, then a guided walk down into the valley and back up for lunch.",
+    "meals": "Breakfast",
+    "stay": "Ubud"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 12,
+  "fields": {
+    "package": 2,
+    "day_number": 3,
+    "title": "Waterfalls",
+    "description": "An early start to Tibumana and Tegenungan before the day-trippers.",
+    "meals": "Breakfast",
+    "stay": "Ubud"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 13,
+  "fields": {
+    "package": 2,
+    "day_number": 4,
+    "title": "Spa and nothing else",
+    "description": "Deliberately unscheduled. Your treatment is booked for whenever you like.",
+    "meals": "Breakfast",
+    "stay": "Ubud"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 14,
+  "fields": {
+    "package": 2,
+    "day_number": 5,
+    "title": "Home",
+    "description": "Breakfast, checkout, transfer.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 15,
+  "fields": {
+    "package": 3,
+    "day_number": 1,
+    "title": "Land in Leh, do nothing",
+    "description": "Acclimatisation is the whole job today. You will be told to rest, and you should listen.",
+    "meals": "Dinner",
+    "stay": "Leh"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 16,
+  "fields": {
+    "package": 3,
+    "day_number": 2,
+    "title": "Monasteries and the Indus valley",
+    "description": "Thiksey at dawn for prayers, then Hemis and Shey at an unhurried pace.",
+    "meals": "All meals",
+    "stay": "Leh"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 17,
+  "fields": {
+    "package": 3,
+    "day_number": 3,
+    "title": "Over Chang La to Pangong",
+    "description": "Five hours of climbing, a pass at 5,360m, then the lake appears and stops the conversation.",
+    "meals": "All meals",
+    "stay": "Pangong camp"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 18,
+  "fields": {
+    "package": 3,
+    "day_number": 4,
+    "title": "Pangong, slowly",
+    "description": "Sunrise over the water, a walk along the shore to Merak, and a very early night.",
+    "meals": "All meals",
+    "stay": "Pangong camp"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 19,
+  "fields": {
+    "package": 3,
+    "day_number": 5,
+    "title": "Nubra via Shyok",
+    "description": "The rough, beautiful river road north to Hunder and the dunes.",
+    "meals": "All meals",
+    "stay": "Hunder"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 20,
+  "fields": {
+    "package": 3,
+    "day_number": 6,
+    "title": "Diskit and Khardung La",
+    "description": "The big Maitreya Buddha in the morning, then back to Leh over the top.",
+    "meals": "All meals",
+    "stay": "Leh"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 21,
+  "fields": {
+    "package": 3,
+    "day_number": 7,
+    "title": "Fly out",
+    "description": "Early transfer for the morning flight — the only one that reliably gets out.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 22,
+  "fields": {
+    "package": 4,
+    "day_number": 1,
+    "title": "Arrive in Kyoto",
+    "description": "Airport express from Kansai, check into the machiya, then a walk through Gion at dusk.",
+    "meals": "Dinner",
+    "stay": "Machiya, Nakagyo"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 23,
+  "fields": {
+    "package": 4,
+    "day_number": 2,
+    "title": "Arashiyama at dawn",
+    "description": "Out at 5:45am for the bamboo grove and Tenryu-ji before anyone else. Afternoon free.",
+    "meals": "Breakfast",
+    "stay": "Nakagyo"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 24,
+  "fields": {
+    "package": 4,
+    "day_number": 3,
+    "title": "The eastern hills",
+    "description": "Kiyomizu-dera, the stone lanes of Ninen-zaka, and Kodai-ji lit up after dark.",
+    "meals": "Breakfast, dinner",
+    "stay": "Nakagyo"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 25,
+  "fields": {
+    "package": 4,
+    "day_number": 4,
+    "title": "Fushimi Inari and tea",
+    "description": "The full gate circuit up the mountain, then a private tea ceremony in the afternoon.",
+    "meals": "Breakfast",
+    "stay": "Nakagyo"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 26,
+  "fields": {
+    "package": 4,
+    "day_number": 5,
+    "title": "Philosopher's Path",
+    "description": "A slow north-to-south walk via Ginkaku-ji, ending with kaiseki.",
+    "meals": "Breakfast, dinner",
+    "stay": "Nakagyo"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 27,
+  "fields": {
+    "package": 4,
+    "day_number": 6,
+    "title": "Depart",
+    "description": "Nishiki market for last-minute food, then the train to Kansai.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 28,
+  "fields": {
+    "package": 5,
+    "day_number": 1,
+    "title": "Arrive Santorini",
+    "description": "Transfer to Imerovigli, then the first of many caldera sunsets.",
+    "meals": "Dinner",
+    "stay": "Imerovigli"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 29,
+  "fields": {
+    "package": 5,
+    "day_number": 2,
+    "title": "The caldera walk",
+    "description": "Fira to Oia on foot, starting at 7am. Afternoon by the pool, because you earned it.",
+    "meals": "Breakfast",
+    "stay": "Imerovigli"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 30,
+  "fields": {
+    "package": 5,
+    "day_number": 3,
+    "title": "Catamaran day",
+    "description": "Red Beach, White Beach, the hot springs and lunch on board.",
+    "meals": "Breakfast, lunch",
+    "stay": "Imerovigli"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 31,
+  "fields": {
+    "package": 5,
+    "day_number": 4,
+    "title": "Inland Santorini",
+    "description": "Pyrgos, Emporio and a long afternoon at a winery that predates the tourism.",
+    "meals": "Breakfast",
+    "stay": "Imerovigli"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 32,
+  "fields": {
+    "package": 5,
+    "day_number": 5,
+    "title": "Ferry to Naxos",
+    "description": "Two hours across. Naxos Town's Venetian quarter in the evening.",
+    "meals": "Breakfast",
+    "stay": "Naxos Town"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 33,
+  "fields": {
+    "package": 5,
+    "day_number": 6,
+    "title": "Mountain villages",
+    "description": "Halki, Apeiranthos and the marble quarries, with lunch at a taverna with four tables.",
+    "meals": "Breakfast, lunch",
+    "stay": "Naxos Town"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 34,
+  "fields": {
+    "package": 5,
+    "day_number": 7,
+    "title": "Beach day",
+    "description": "Plaka and Mikri Vigla, both long and mostly empty.",
+    "meals": "Breakfast",
+    "stay": "Naxos Town"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 35,
+  "fields": {
+    "package": 5,
+    "day_number": 8,
+    "title": "Depart",
+    "description": "Morning ferry or flight out of Naxos.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 36,
+  "fields": {
+    "package": 6,
+    "day_number": 1,
+    "title": "Land at Keflavík",
+    "description": "Transfer to Reykjavík, an orientation walk and an early night.",
+    "meals": "Dinner",
+    "stay": "Reykjavík"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 37,
+  "fields": {
+    "package": 6,
+    "day_number": 2,
+    "title": "Golden Circle",
+    "description": "Þingvellir, Geysir and Gullfoss, ending at a lodge in the south with dark skies.",
+    "meals": "Breakfast, dinner",
+    "stay": "South coast lodge"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 38,
+  "fields": {
+    "package": 6,
+    "day_number": 3,
+    "title": "Waterfall day",
+    "description": "Seljalandsfoss, Skógafoss and the black sands at Reynisfjara.",
+    "meals": "Breakfast",
+    "stay": "Vík"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 39,
+  "fields": {
+    "package": 6,
+    "day_number": 4,
+    "title": "Glacier and lagoon",
+    "description": "Morning hike on Sólheimajökull, afternoon at Jökulsárlón and the Diamond Beach.",
+    "meals": "Breakfast, dinner",
+    "stay": "Höfn"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 40,
+  "fields": {
+    "package": 6,
+    "day_number": 5,
+    "title": "Back west",
+    "description": "A long, spectacular drive returning to Reykjavík with stops as the light allows.",
+    "meals": "Breakfast",
+    "stay": "Reykjavík"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 41,
+  "fields": {
+    "package": 6,
+    "day_number": 6,
+    "title": "Blue Lagoon and out",
+    "description": "A soak on the way to the airport, which is the correct order.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 42,
+  "fields": {
+    "package": 7,
+    "day_number": 1,
+    "title": "Arrive and raft",
+    "description": "Check into camp by noon, then the afternoon run from Shivpuri to Rishikesh.",
+    "meals": "Lunch, dinner",
+    "stay": "Riverside camp"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 43,
+  "fields": {
+    "package": 7,
+    "day_number": 2,
+    "title": "Full-day river",
+    "description": "The long 26km stretch with a beach lunch, followed by an evening at the aarti.",
+    "meals": "All meals",
+    "stay": "Riverside camp"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 44,
+  "fields": {
+    "package": 7,
+    "day_number": 3,
+    "title": "Trek and out",
+    "description": "A short waterfall trek before checkout at 11am.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 45,
+  "fields": {
+    "package": 8,
+    "day_number": 1,
+    "title": "Arrive Queenstown",
+    "description": "Transfer from the airport and a gondola ride for the view before dinner.",
+    "meals": "Dinner",
+    "stay": "Queenstown"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 46,
+  "fields": {
+    "package": 8,
+    "day_number": 2,
+    "title": "Lake day",
+    "description": "Glenorchy road, a short hike at the head of the lake, and a free afternoon.",
+    "meals": "Breakfast",
+    "stay": "Queenstown"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 47,
+  "fields": {
+    "package": 8,
+    "day_number": 3,
+    "title": "The Routeburn",
+    "description": "A guided day section of the Great Walk. Long, steep and worth it.",
+    "meals": "Breakfast, dinner",
+    "stay": "Queenstown"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 48,
+  "fields": {
+    "package": 8,
+    "day_number": 4,
+    "title": "To Te Anau",
+    "description": "Drive south, stopping at Mirror Lakes. Evening walk along the Te Anau waterfront.",
+    "meals": "Breakfast",
+    "stay": "Te Anau"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 49,
+  "fields": {
+    "package": 8,
+    "day_number": 5,
+    "title": "Milford Sound",
+    "description": "The Homer Tunnel road, then a two-hour cruise out to the open sea.",
+    "meals": "Breakfast, dinner",
+    "stay": "Te Anau"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 50,
+  "fields": {
+    "package": 8,
+    "day_number": 6,
+    "title": "Back north, your call",
+    "description": "Return to Queenstown. The afternoon is yours — this is when the bungee voucher gets used.",
+    "meals": "Breakfast",
+    "stay": "Queenstown"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 51,
+  "fields": {
+    "package": 8,
+    "day_number": 7,
+    "title": "Depart",
+    "description": "Airport transfer.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 52,
+  "fields": {
+    "package": 9,
+    "day_number": 1,
+    "title": "Arrive in Lisbon",
+    "description": "Settle into Príncipe Real, then a sunset miradouro and dinner nearby.",
+    "meals": "Dinner",
+    "stay": "Príncipe Real"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 53,
+  "fields": {
+    "package": 9,
+    "day_number": 2,
+    "title": "Alfama and Belém",
+    "description": "Tram 28 up, walk down through Alfama, then Belém in the afternoon.",
+    "meals": "Breakfast",
+    "stay": "Príncipe Real"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 54,
+  "fields": {
+    "package": 9,
+    "day_number": 3,
+    "title": "Sintra",
+    "description": "Pena, Regaleira and Cabo da Roca with a driver, avoiding the queues.",
+    "meals": "Breakfast, dinner",
+    "stay": "Príncipe Real"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 55,
+  "fields": {
+    "package": 9,
+    "day_number": 4,
+    "title": "South to Comporta",
+    "description": "An hour's drive to rice paddies and pine forest behind 12km of beach.",
+    "meals": "Breakfast",
+    "stay": "Comporta"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 56,
+  "fields": {
+    "package": 9,
+    "day_number": 5,
+    "title": "Beach and nothing",
+    "description": "Deliberately empty. Surf, horse ride or read — all available, none compulsory.",
+    "meals": "Breakfast",
+    "stay": "Comporta"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 57,
+  "fields": {
+    "package": 9,
+    "day_number": 6,
+    "title": "Back and out",
+    "description": "Return to Lisbon for the flight.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 58,
+  "fields": {
+    "package": 10,
+    "day_number": 1,
+    "title": "Arrive Cape Town",
+    "description": "Transfer to the City Bowl and an easy first evening.",
+    "meals": "Dinner",
+    "stay": "City Bowl"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 59,
+  "fields": {
+    "package": 10,
+    "day_number": 2,
+    "title": "Table Mountain",
+    "description": "Up Platteklip at 6am, down by cable car, afternoon at the V&A.",
+    "meals": "Breakfast",
+    "stay": "City Bowl"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 60,
+  "fields": {
+    "package": 10,
+    "day_number": 3,
+    "title": "The peninsula",
+    "description": "Chapman's Peak, Cape Point, Boulders Beach and back along False Bay.",
+    "meals": "Breakfast",
+    "stay": "City Bowl"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 61,
+  "fields": {
+    "package": 10,
+    "day_number": 4,
+    "title": "Winelands",
+    "description": "Stellenbosch in the morning, Franschhoek after lunch, with a driver throughout.",
+    "meals": "Breakfast, dinner",
+    "stay": "Franschhoek"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 62,
+  "fields": {
+    "package": 10,
+    "day_number": 5,
+    "title": "Slow morning, fly east",
+    "description": "A second tasting, then the afternoon flight to the reserve.",
+    "meals": "Breakfast, dinner",
+    "stay": "Game lodge"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 63,
+  "fields": {
+    "package": 10,
+    "day_number": 6,
+    "title": "Safari",
+    "description": "Dawn and dusk game drives with a long lunch and a nap between them.",
+    "meals": "All meals",
+    "stay": "Game lodge"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 64,
+  "fields": {
+    "package": 10,
+    "day_number": 7,
+    "title": "Safari",
+    "description": "As yesterday, with a walking safari option in the morning.",
+    "meals": "All meals",
+    "stay": "Game lodge"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 65,
+  "fields": {
+    "package": 10,
+    "day_number": 8,
+    "title": "Final drive, fly back",
+    "description": "Last dawn drive, then the flight to Cape Town.",
+    "meals": "Breakfast",
+    "stay": "Camps Bay"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 66,
+  "fields": {
+    "package": 10,
+    "day_number": 9,
+    "title": "Beach and Bo-Kaap",
+    "description": "Camps Bay in the morning, the Bo-Kaap and a food tour in the afternoon.",
+    "meals": "Breakfast, dinner",
+    "stay": "Camps Bay"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 67,
+  "fields": {
+    "package": 10,
+    "day_number": 10,
+    "title": "Depart",
+    "description": "Airport transfer.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 68,
+  "fields": {
+    "package": 11,
+    "day_number": 1,
+    "title": "Arrive, find the sea",
+    "description": "Transfer from Dabolim or Mopa, check in and do nothing.",
+    "meals": "—",
+    "stay": "Patnem"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 69,
+  "fields": {
+    "package": 11,
+    "day_number": 2,
+    "title": "Palolem and Butterfly",
+    "description": "Sunrise kayak to Butterfly Beach, back for breakfast, afternoon at Palolem.",
+    "meals": "Breakfast",
+    "stay": "Patnem"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 70,
+  "fields": {
+    "package": 11,
+    "day_number": 3,
+    "title": "Inland day",
+    "description": "Scooter to a spice plantation, then the Netravali bubble lake on the way back.",
+    "meals": "Breakfast, lunch",
+    "stay": "Patnem"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 71,
+  "fields": {
+    "package": 11,
+    "day_number": 4,
+    "title": "Cabo de Rama",
+    "description": "The fort ruins and the cliff beach below, which is usually empty.",
+    "meals": "Breakfast",
+    "stay": "Patnem"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 72,
+  "fields": {
+    "package": 11,
+    "day_number": 5,
+    "title": "Depart",
+    "description": "A last swim and an airport transfer.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 73,
+  "fields": {
+    "package": 12,
+    "day_number": 1,
+    "title": "Arrive and go up",
+    "description": "Check in Downtown, then Burj Khalifa 148 timed for sunset.",
+    "meals": "—",
+    "stay": "Downtown"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 74,
+  "fields": {
+    "package": 12,
+    "day_number": 2,
+    "title": "Old Dubai",
+    "description": "Abra across the creek, both souks, and the Al Fahidi quarter.",
+    "meals": "Breakfast",
+    "stay": "Downtown"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 75,
+  "fields": {
+    "package": 12,
+    "day_number": 3,
+    "title": "Into the desert",
+    "description": "Afternoon pickup, dune bashing, camel ride and a camp dinner under the stars.",
+    "meals": "Breakfast, dinner",
+    "stay": "Desert camp"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 76,
+  "fields": {
+    "package": 12,
+    "day_number": 4,
+    "title": "Beach, then home",
+    "description": "Sunrise over the dunes, back to the city for Kite Beach and the airport.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 77,
+  "fields": {
+    "package": 13,
+    "day_number": 1,
+    "title": "Port Blair and Ross",
+    "description": "Land, transfer, and an afternoon at Ross Island and the Cellular Jail show.",
+    "meals": "—",
+    "stay": "Port Blair"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 78,
+  "fields": {
+    "package": 13,
+    "day_number": 2,
+    "title": "Ferry to Havelock",
+    "description": "Morning catamaran, check in, sunset at Radhanagar.",
+    "meals": "Breakfast",
+    "stay": "Havelock"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 79,
+  "fields": {
+    "package": 13,
+    "day_number": 3,
+    "title": "Dive day",
+    "description": "Two guided dives in the morning, an empty afternoon at Elephant Beach.",
+    "meals": "Breakfast",
+    "stay": "Havelock"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 80,
+  "fields": {
+    "package": 13,
+    "day_number": 4,
+    "title": "On to Neil",
+    "description": "Short ferry south. Bharatpur snorkelling and the rock bridge at low tide.",
+    "meals": "Breakfast",
+    "stay": "Neil"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 81,
+  "fields": {
+    "package": 13,
+    "day_number": 5,
+    "title": "Neil, unhurried",
+    "description": "Laxmanpur for sunset, and very little else on the schedule.",
+    "meals": "Breakfast",
+    "stay": "Neil"
+  }
+},
+{
+  "model": "destinations.itineraryday",
+  "pk": 82,
+  "fields": {
+    "package": 13,
+    "day_number": 6,
+    "title": "Back to Port Blair",
+    "description": "Ferry and airport transfer.",
+    "meals": "Breakfast",
+    "stay": "—"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 1,
+  "fields": {
+    "name": "Aanya Kulkarni",
+    "handle": "@aanyawanders",
+    "trip_taken": "Bali Unfiltered",
+    "quote": "I've booked a lot of trips and this is the first time the itinerary actually matched the photos. The Ubud sunrise bit is worth every bit of the 5am alarm.",
+    "rating": 5,
+    "avatar": "",
+    "avatar_url": "https://picsum.photos/seed/face-aanyawanders/200/200",
+    "is_active": true,
+    "order": 0,
+    "created_at": "2026-09-21T00:49:50.347Z"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 2,
+  "fields": {
+    "name": "Rohan Mehta",
+    "handle": "@rohanonroute",
+    "trip_taken": "Ladakh Overland",
+    "quote": "They put an oxygen cylinder in the car and told me to sit still on day one. Two of my friends who booked elsewhere spent day two with altitude sickness. Small thing, huge difference.",
+    "rating": 5,
+    "avatar": "",
+    "avatar_url": "https://picsum.photos/seed/face-rohanonroute/200/200",
+    "is_active": true,
+    "order": 1,
+    "created_at": "2026-09-21T00:49:50.348Z"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 3,
+  "fields": {
+    "name": "Tara Fernandes",
+    "handle": "@tarafern",
+    "trip_taken": "South Goa Slow",
+    "quote": "Scooter included was the detail that sold me. Four days of turning down random lanes and finding beaches with nobody on them.",
+    "rating": 4,
+    "avatar": "",
+    "avatar_url": "https://picsum.photos/seed/face-tarafern/200/200",
+    "is_active": true,
+    "order": 2,
+    "created_at": "2026-09-21T00:49:50.349Z"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 4,
+  "fields": {
+    "name": "Ishaan Verma",
+    "handle": "@ishaan.v",
+    "trip_taken": "Kyoto in Autumn",
+    "quote": "The bamboo grove at 6am was genuinely empty. By 9am there were four hundred people there. Timing is the entire product and they know it.",
+    "rating": 5,
+    "avatar": "",
+    "avatar_url": "https://picsum.photos/seed/face-ishaan.v/200/200",
+    "is_active": true,
+    "order": 3,
+    "created_at": "2026-09-21T00:49:50.349Z"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 5,
+  "fields": {
+    "name": "Meera Nair",
+    "handle": "@meeranair",
+    "trip_taken": "Iceland's South Coast",
+    "quote": "Three aurora nights booked in on purpose instead of hoping. We got it on the second. Guide pulled over at 11pm and just let us stand there.",
+    "rating": 5,
+    "avatar": "",
+    "avatar_url": "https://picsum.photos/seed/face-meeranair/200/200",
+    "is_active": true,
+    "order": 4,
+    "created_at": "2026-09-21T00:49:50.350Z"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 6,
+  "fields": {
+    "name": "Dev Patel",
+    "handle": "@devgoeswest",
+    "trip_taken": "Cape Peninsula & Safari",
+    "quote": "Ten days, zero admin. I got a WhatsApp message before every single transfer. Booking a safari usually means six emails with a lodge — this was one payment.",
+    "rating": 5,
+    "avatar": "",
+    "avatar_url": "https://picsum.photos/seed/face-devgoeswest/200/200",
+    "is_active": true,
+    "order": 5,
+    "created_at": "2026-09-21T00:49:50.351Z"
+  }
+},
+{
+  "model": "bookings.coupon",
+  "pk": 1,
+  "fields": {
+    "code": "FIRSTTRIP",
+    "description": "15% off your first Travello booking",
+    "discount_type": "percent",
+    "value": "15.00",
+    "max_discount": "5000.00",
+    "valid_from": "2026-09-14",
+    "valid_to": "2027-09-21",
+    "usage_limit": 500,
+    "times_used": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "bookings.coupon",
+  "pk": 2,
+  "fields": {
+    "code": "GENZ500",
+    "description": "Flat ₹500 off — student and under-25 offer",
+    "discount_type": "flat",
+    "value": "500.00",
+    "max_discount": null,
+    "valid_from": "2026-09-14",
+    "valid_to": "2027-03-20",
+    "usage_limit": 1000,
+    "times_used": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "bookings.coupon",
+  "pk": 3,
+  "fields": {
+    "code": "MONSOON20",
+    "description": "20% off monsoon-season departures",
+    "discount_type": "percent",
+    "value": "20.00",
+    "max_discount": "8000.00",
+    "valid_from": "2026-09-14",
+    "valid_to": "2027-01-19",
+    "usage_limit": 200,
+    "times_used": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "bookings.coupon",
+  "pk": 4,
+  "fields": {
+    "code": "WELCOME10",
+    "description": "10% off, no minimum spend",
+    "discount_type": "percent",
+    "value": "10.00",
+    "max_discount": "3000.00",
+    "valid_from": "2026-09-14",
+    "valid_to": "2027-09-21",
+    "usage_limit": 2000,
+    "times_used": 0,
+    "is_active": true
+  }
+}
+]

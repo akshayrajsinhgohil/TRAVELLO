@@ -1,0 +1,23 @@
+{% load travello_tags %}
+{% if is_paginated %}
+<nav class="mt-14 flex items-center justify-center gap-2" aria-label="Pagination">
+  {% if page_obj.has_previous %}
+  <a href="?{% query_replace page=page_obj.previous_page_number %}"
+     class="btn btn-ghost !px-4 !py-2 text-sm">Previous</a>
+  {% endif %}
+
+  {% for num in paginator.page_range %}
+    {% if num == page_obj.number %}
+      <span class="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-magenta to-violet text-sm font-semibold" aria-current="page">{{ num }}</span>
+    {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+      <a href="?{% query_replace page=num %}"
+         class="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-sm text-mist transition hover:border-white/30 hover:text-cream">{{ num }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+  <a href="?{% query_replace page=page_obj.next_page_number %}"
+     class="btn btn-ghost !px-4 !py-2 text-sm">Next</a>
+  {% endif %}
+</nav>
+{% endif %}

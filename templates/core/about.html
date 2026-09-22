@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="relative pt-36">
+  <div class="aurora right-0 top-0 h-96 w-96 bg-magenta/25"></div>
+  <div class="relative mx-auto max-w-4xl px-5 lg:px-8">
+    <h1 class="font-display text-[clamp(2.6rem,6vw,4.6rem)] leading-[0.98]">
+      We got tired of booking trips that looked nothing like the photos.
+    </h1>
+    <p class="mt-8 text-lg leading-relaxed text-mist">
+      Travello started because planning a good trip took eleven browser tabs, three
+      spreadsheets and a phone call to someone's cousin. The trips here are built the
+      way we'd want them: the full day-by-day plan up front, the real price including
+      tax, and reviews written only by people who actually went.
+    </p>
+  </div>
+</section>
+
+<section class="mx-auto max-w-4xl px-5 py-20 lg:px-8">
+  <div class="space-y-12">
+    <div data-reveal>
+      <h2 class="font-display text-[var(--step-2)]">How a trip gets on the site</h2>
+      <p class="mt-4 text-mist">
+        Someone from the team goes first. They walk the route, eat at the places,
+        and stay in the rooms. If a day doesn't earn its place it gets cut, which is why
+        most trips here are shorter than the ones you'll find elsewhere.
+      </p>
+    </div>
+
+    <div data-reveal>
+      <h2 class="font-display text-[var(--step-2)]">What the price means</h2>
+      <p class="mt-4 text-mist">
+        The number on the card is per person, and the checkout adds tax before you pay,
+        not after. Every trip page lists what's included and what isn't, in plain language.
+        If something costs extra, it says so before you book.
+      </p>
+    </div>
+
+    <div data-reveal>
+      <h2 class="font-display text-[var(--step-2)]">Why reviews here are different</h2>
+      <p class="mt-4 text-mist">
+        A review can only be written by an account that booked the trip, and each one is
+        read by a human before it appears. That means fewer reviews than the big sites,
+        and reviews you can actually use.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-16 rounded-5xl border border-white/10 bg-gradient-to-br from-violet/20 to-magenta/10 p-10 text-center" data-reveal>
+    <h2 class="font-display text-[var(--step-2)]">Go somewhere.</h2>
+    <p class="mx-auto mt-3 max-w-md text-mist">There are trips leaving every week. One of them has your name on it.</p>
+    <a href="{% url 'destinations:package_list' %}" class="btn btn-primary magnetic mt-7">Browse trips</a>
+  </div>
+</section>
+{% endblock %}

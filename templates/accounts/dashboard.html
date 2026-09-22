@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load travello_tags %}
+
+{% block content %}
+<section class="mx-auto max-w-6xl px-5 pb-24 pt-32 lg:px-8">
+
+  <div class="flex flex-wrap items-center justify-between gap-5">
+    <div>
+      <h1 class="font-display text-[var(--step-3)]">Hey {{ user.display_name }}</h1>
+      <p class="mt-2 text-mist">
+        {% if upcoming %}{{ upcoming.package.destination.name }} in {{ upcoming.days_until }} day{{ upcoming.days_until|pluralize }}.
+        {% else %}Nothing booked yet — the good stuff is one search away.{% endif %}
+      </p>
+    </div>
+    <div class="flex gap-2">
+      <a href="{% url 'accounts:profile' %}" class="btn btn-ghost text-sm">Edit profile</a>
+      <a href="{% url 'accounts:logout' %}" class="btn btn-ghost text-sm">Sign out</a>
+    </div>
+  </div>
+
+  {% if not user.is_email_verified %}
+  <div class="glass mt-8 flex flex-wrap items-center justify-between gap-4 rounded-3xl border-amber/30 p-5">
+    <div class="text-sm">
+      <p class="font-semibold text-amber">Confirm your email</p>
+      <p class="mt-1 text-mist">We sent a link to {{ user.email }}. Confirming keeps your bookings recoverable.</p>
+    </div>
+    <form method="post" action="{% url 'accounts:resend_verification' %}">
+      {% csrf_token %}
+      <button class="btn btn-ghost text-sm">Send it again</button>
+    </form>
+  </div>
+  {% endif %}
+
+  {# ---- Stats ---- #}
+  <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="glass rounded-4xl p-6" data-reveal>
+      <p class="font-display text-4xl"><span data-count-to="{{ booking_count }}">0</span></p>
+      <p class="mt-1 text-sm text-mist">booking{{ booking_count|pluralize }}</p>
+    </div>
+    <div class="glass rounded-4xl p-6" data-reveal data-reveal-delay="80">
+      <p class="font-display text-4xl"><span data-count-to="{{ countries }}">0</span></p>
+      <p class="mt-1 text-sm text-mist">countr{{ countries|pluralize:"y,ies" }} visited</p>
+    </div>
+    <div class="glass rounded-4xl p-6" data-reveal data-reveal-delay="160">
+      <p class="font-display text-3xl text-mint">{{ total_spent|money }}</p>
+      <p class="mt-1 text-sm text-mist">spent on trips</p>
+    </div>
+    <div class="glass rounded-4xl p-6" data-reveal data-reveal-delay="240">
+      <p class="font-display text-4xl"><span data-count-to="{{ wishlist|length }}">0</span></p>
+      <p class="mt-1 text-sm text-mist">saved for later</p>
+    </div>
+  </div>
+
+  {# ---- Recent bookings ---- #}
+  <div class="mt-14 flex items-end justify-between">
+    <h2 class="font-display text-[var(--step-2)]">Your trips</h2>
+    <a href="{% url 'bookings:list' %}" class="text-sm text-mist transition hover:text-cream">See all</a>
+  </div>
+
+  <div class="mt-6 space-y-4">
+    {% for booking in bookings %}
+    <a href="{{ booking.get_absolute_url }}" class="glass edge-glow flex flex-col gap-5 rounded-4xl p-5 transition hover:border-white/25 sm:flex-row sm:items-center" data-reveal>
+      <div class="h-24 w-full shrink-0 overflow-hidden rounded-3xl sm:w-36">
+        {% if booking.package.display_image %}
+          <img src="{{ booking.package.display_image }}" alt="" loading="lazy" class="h-full w-full object-cover">
+        {% else %}
+          <div class="h-full w-full bg-gradient-to-br from-violet/40 to-magenta/25"></div>
+        {% endif %}
+      </div>
+      <div class="min-w-0 flex-1">
+        <span class="rounded-full bg-{{ booking.status_tone }}/15 px-3 py-1 text-[11px] font-semibold text-{{ booking.status_tone }}">{{ booking.get_status_display }}</span>
+        <h3 class="mt-2 font-display text-lg">{{ booking.package.title }}</h3>
+        <p class="mt-1 text-sm text-mist">{{ booking.start_date|date:"j M Y" }} · {{ booking.reference }}</p>
+      </div>
+      <p class="font-display text-xl text-mint">{{ booking.total_amount|money }}</p>
+    </a>
+    {% empty %}
+    <div class="glass rounded-4xl p-12 text-center">
+      <p class="font-display text-xl">No trips booked yet</p>
+      <p class="mt-2 text-sm text-mist">Pick somewhere and the rest is three steps.</p>
+      <a href="{% url 'destinations:package_list' %}" class="btn btn-primary mt-6 text-sm">Browse trips</a>
+    </div>
+    {% endfor %}
+  </div>
+
+  {# ---- Wishlist ---- #}
+  {% if wishlist %}
+  <div class="mt-14 flex items-end justify-between">
+    <h2 class="font-display text-[var(--step-2)]">Saved for later</h2>
+    <a href="{% url 'accounts:wishlist' %}" class="text-sm text-mist transition hover:text-cream">See all</a>
+  </div>
+  <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {% for item in wishlist %}
+      {% include "partials/trip_card.html" with package=item.package delay=forloop.counter0 %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

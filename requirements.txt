@@ -1,0 +1,22 @@
+# Core
+Django>=5.0,<5.3
+djangorestframework>=3.15
+python-decouple>=3.8
+dj-database-url>=2.2
+Pillow>=10.3
+django-widget-tweaks>=1.5
+
+# Database drivers
+psycopg[binary]>=3.1            # PostgreSQL
+
+# Static files & serving
+whitenoise[brotli]>=6.7
+gunicorn>=22.0
+
+# Payments (optional — only needed when PAYMENT_GATEWAY is not "sandbox")
+razorpay>=1.4
+stripe>=9.0
+
+# Media storage (optional — only needed when USE_CLOUDINARY=True)
+cloudinary>=1.40
+django-cloudinary-storage>=0.3

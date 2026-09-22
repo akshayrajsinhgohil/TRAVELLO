@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{# Shared split-screen shell for sign in / register / password reset. #}
+{% block content %}
+<section class="relative min-h-screen pt-28">
+  <div class="aurora left-[-8rem] top-10 h-96 w-96 bg-violet/40"></div>
+  <div class="aurora right-[-6rem] bottom-10 h-80 w-80 bg-magenta/30"></div>
+
+  <div class="relative mx-auto grid max-w-6xl items-center gap-14 px-5 py-14 lg:grid-cols-2 lg:px-8">
+    <div class="hidden lg:block">
+      <h2 class="font-display text-[clamp(2.4rem,4vw,3.6rem)] leading-[0.98]">
+        {% block aside_heading %}Trips you'd actually tell people about.{% endblock %}
+      </h2>
+      <p class="mt-6 max-w-md text-mist">{% block aside_copy %}Save trips you like, keep every booking in one place, and get told when a price drops on somewhere you've been eyeing.{% endblock %}</p>
+      <ul class="mt-9 space-y-3 text-sm text-mist">
+        <li class="flex gap-3"><span class="text-mint">✓</span>Day-by-day itineraries before you pay</li>
+        <li class="flex gap-3"><span class="text-mint">✓</span>Free cancellation until departure</li>
+        <li class="flex gap-3"><span class="text-mint">✓</span>Reviews only from people who actually went</li>
+      </ul>
+    </div>
+
+    <div class="glass-strong rounded-5xl p-8 sm:p-10">
+      {% block form_content %}{% endblock %}
+    </div>
+  </div>
+</section>
+{% endblock %}

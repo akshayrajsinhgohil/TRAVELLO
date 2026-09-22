@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load travello_tags %}
+
+{% block content %}
+<section class="mx-auto max-w-4xl px-5 pb-24 pt-32 lg:px-8">
+  <a href="{% url 'bookings:list' %}" class="text-xs text-mist transition hover:text-cream">← All bookings</a>
+
+  <div class="mt-5 flex flex-wrap items-start justify-between gap-5">
+    <div>
+      <span class="rounded-full bg-{{ booking.status_tone }}/15 px-3 py-1 text-[11px] font-semibold text-{{ booking.status_tone }}">{{ booking.get_status_display }}</span>
+      <h1 class="mt-3 font-display text-[var(--step-2)]">{{ booking.package.title }}</h1>
+      <p class="mt-2 text-sm text-mist">Reference {{ booking.reference }} · booked {{ booking.created_at|date:"j M Y" }}</p>
+    </div>
+    {% if booking.status == "confirmed" and booking.days_until >= 0 %}
+    <div class="glass rounded-3xl px-6 py-4 text-center">
+      <p class="font-display text-3xl text-mint">{{ booking.days_until }}</p>
+      <p class="text-[11px] text-mist">day{{ booking.days_until|pluralize }} to go</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="mt-9 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
+    <div class="space-y-6">
+      <div class="glass-strong rounded-4xl p-7">
+        <h2 class="font-display text-lg">Trip details</h2>
+        <dl class="mt-5 grid gap-5 sm:grid-cols-2 text-sm">
+          <div><dt class="text-mist">Destination</dt><dd class="mt-1">{{ booking.package.destination.name }}, {{ booking.package.destination.country }}</dd></div>
+          <div><dt class="text-mist">Length</dt><dd class="mt-1">{{ booking.package.duration_label }}</dd></div>
+          <div><dt class="text-mist">Leaving</dt><dd class="mt-1">{{ booking.start_date|date:"l, j F Y" }}</dd></div>
+          <div><dt class="text-mist">Returning</dt><dd class="mt-1">{{ booking.end_date|date:"l, j F Y" }}</dd></div>
+          <div><dt class="text-mist">Lead traveller</dt><dd class="mt-1">{{ booking.full_name }}</dd></div>
+          <div><dt class="text-mist">Guests</dt><dd class="mt-1">{{ booking.adults }} adult{{ booking.adults|pluralize }}{% if booking.children %}, {{ booking.children }} child{{ booking.children|pluralize:"ren" }}{% endif %}</dd></div>
+        </dl>
+        {% if booking.special_requests %}
+        <div class="mt-6 border-t border-white/8 pt-5 text-sm">
+          <p class="text-mist">Your requests</p>
+          <p class="mt-1.5">{{ booking.special_requests }}</p>
+        </div>
+        {% endif %}
+      </div>
+
+      {% if booking.package.itinerary.all %}
+      <div class="glass-strong rounded-4xl p-7">
+        <h2 class="font-display text-lg">Your itinerary</h2>
+        <div class="timeline mt-6">
+          {% for day in booking.package.itinerary.all %}
+          <div class="relative pb-7">
+            <span class="timeline-dot">{{ day.day_number }}</span>
+            <h3 class="font-display text-base">{{ day.title }}</h3>
+            <p class="mt-1.5 text-sm text-mist">{{ day.description }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <aside class="space-y-6">
+      <div class="glass-strong rounded-4xl p-7">
+        <h2 class="font-display text-lg">Payment</h2>
+        <dl class="mt-5 space-y-3 text-sm">
+          <div class="flex justify-between"><dt class="text-mist">{{ booking.unit_price|money }} × {{ booking.guests }}</dt><dd>{{ booking.base_amount|money }}</dd></div>
+          {% if booking.discount_amount %}
+          <div class="flex justify-between text-mint"><dt>Discount</dt><dd>−{{ booking.discount_amount|money }}</dd></div>
+          {% endif %}
+          <div class="flex justify-between"><dt class="text-mist">Taxes and fees</dt><dd>{{ booking.tax_amount|money }}</dd></div>
+          <div class="flex justify-between border-t border-white/10 pt-3 font-semibold"><dt>Total</dt><dd class="text-mint">{{ booking.total_amount|money }}</dd></div>
+          <div class="flex justify-between"><dt class="text-mist">Status</dt><dd>{{ booking.get_payment_status_display }}</dd></div>
+        </dl>
+
+        {% if booking.payment_status == "unpaid" and booking.status == "pending" %}
+        <a href="{% url 'bookings:pay' booking.reference %}" class="btn btn-mint mt-6 w-full text-sm">Complete payment</a>
+        {% endif %}
+      </div>
+
+      {% if booking.is_cancellable %}
+      <div class="glass rounded-4xl p-7">
+        <h2 class="font-display text-lg">Need to cancel?</h2>
+        <p class="mt-2 text-sm text-mist">Free until the departure date. Refunds land in 5–7 working days.</p>
+        <form method="post" action="{% url 'bookings:cancel' booking.reference %}" class="mt-5">
+          {% csrf_token %}
+          <label for="cancel-reason" class="mb-2 block text-xs text-mist">Reason (optional)</label>
+          <textarea id="cancel-reason" name="reason" rows="2"
+                    class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-magenta/60"></textarea>
+          <button class="btn btn-ghost mt-4 w-full text-sm text-magenta">Cancel this booking</button>
+        </form>
+      </div>
+      {% endif %}
+
+      <div class="glass rounded-4xl p-7 text-sm">
+        <h2 class="font-display text-lg">Questions?</h2>
+        <p class="mt-2 text-mist">Quote {{ booking.reference }} and we'll pull up everything.</p>
+        <a href="{% url 'core:contact' %}?topic=booking" class="btn btn-ghost mt-5 w-full text-sm">Contact support</a>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}

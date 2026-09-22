@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><body style="margin:0;background:#0E0A1F;font-family:-apple-system,Segoe UI,Roboto,sans-serif;color:#F6F1FF">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:40px 16px">
+    <tr><td align="center">
+      <table role="presentation" width="100%" style="max-width:520px;background:#150E2B;border-radius:24px;padding:40px">
+        <tr><td>
+          <p style="margin:0;font-size:22px;font-weight:700;letter-spacing:-.02em">🌍 {{ site_name }}</p>
+          <h1 style="margin:28px 0 0;font-size:28px;line-height:1.1;letter-spacing:-.03em">One tap and you're set, {{ user.display_name }}.</h1>
+          <p style="margin:16px 0 0;color:#A99FC9;line-height:1.6">
+            Confirm your email so we can send booking references and itineraries to the right inbox.
+          </p>
+          <a href="{{ verify_url }}"
+             style="display:inline-block;margin-top:28px;padding:14px 28px;border-radius:999px;background:#FF4D8D;color:#fff;text-decoration:none;font-weight:600">
+            Confirm my email
+          </a>
+          <p style="margin:28px 0 0;color:#A99FC9;font-size:13px;line-height:1.6">
+            The link works for three days. If the button doesn't open, paste this into your browser:<br>
+            <span style="color:#35E0C2;word-break:break-all">{{ verify_url }}</span>
+          </p>
+          <p style="margin:32px 0 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);color:#A99FC9;font-size:12px">
+            Didn't sign up? Ignore this email and nothing happens.
+          </p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>

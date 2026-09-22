@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+{% load travello_tags %}
+
+{% block og_image %}{% if package.display_image %}<meta property="og:image" content="{{ package.display_image }}">{% endif %}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product",
+ "name":"{{ package.title|escapejs }}",
+ "description":"{{ package.seo_description|escapejs }}",
+ "offers":{"@type":"Offer","price":"{{ package.current_price }}","priceCurrency":"{{ CURRENCY_SYMBOL }}","availability":"https://schema.org/InStock"}
+ {% if rating_average %},"aggregateRating":{"@type":"AggregateRating","ratingValue":"{{ rating_average|floatformat:1 }}","reviewCount":"{{ review_count }}"}{% endif %}}
+</script>
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+
+<section class="relative pt-32">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <nav class="text-xs text-mist" aria-label="Breadcrumb">
+      <a href="{% url 'core:home' %}" class="transition hover:text-cream">Home</a>
+      <span class="mx-2 opacity-40">/</span>
+      <a href="{{ package.destination.get_absolute_url }}" class="transition hover:text-cream">{{ package.destination.name }}</a>
+      <span class="mx-2 opacity-40">/</span>
+      <span class="text-cream">{{ package.title|truncatechars:34 }}</span>
+    </nav>
+
+    <div class="mt-6 flex flex-wrap items-start justify-between gap-6">
+      <div class="max-w-3xl">
+        <div class="flex flex-wrap items-center gap-2">
+          {% for category in package.categories.all %}
+          <span class="rounded-full border border-white/12 px-3 py-1 text-[11px] text-mist">{{ category.emoji }} {{ category.name }}</span>
+          {% endfor %}
+          {% if package.is_discounted %}
+          <span class="rounded-full bg-magenta px-3 py-1 text-[11px] font-bold">{{ package.discount_percent }}% off</span>
+          {% endif %}
+        </div>
+        <h1 class="mt-4 font-display text-[clamp(2.2rem,5vw,3.8rem)] leading-[0.98]">{{ package.title }}</h1>
+        <div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-mist">
+          <span>📍 {{ package.destination.name }}, {{ package.destination.country }}</span>
+          <span>🗓 {{ package.duration_label }}</span>
+          <span>👥 up to {{ package.max_guests }}</span>
+          {% if rating_average %}
+          <span><span class="text-amber">★</span> {{ rating_average|floatformat:1 }} ({{ review_count }} review{{ review_count|pluralize }})</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <button type="button"
+              data-wishlist-url="{% url 'accounts:toggle_wishlist' package.slug %}"
+              data-login-url="{% url 'accounts:login' %}?next={{ request.path }}"
+              aria-pressed="{% if in_wishlist %}true{% else %}false{% endif %}"
+              class="btn btn-ghost text-sm {% if in_wishlist %}text-magenta{% endif %}">
+        <span data-heart class="text-lg leading-none">{% if in_wishlist %}♥{% else %}♡{% endif %}</span>
+        <span data-wishlist-label>{% if in_wishlist %}Saved{% else %}Save this trip{% endif %}</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+{# ---------- Gallery ---------- #}
+<section class="mx-auto mt-10 max-w-7xl px-5 lg:px-8">
+  <div class="overflow-hidden rounded-5xl border border-white/10">
+    {% if package.display_image %}
+      <img id="gallery-main" src="{{ package.display_image }}" alt="{{ package.title }}"
+           class="h-[24rem] w-full object-cover sm:h-[32rem]">
+    {% else %}
+      <div class="h-[24rem] w-full bg-gradient-to-br from-violet/45 via-magenta/25 to-amber/20 sm:h-[32rem]"></div>
+    {% endif %}
+  </div>
+  {% if package.gallery.all %}
+  <div class="mt-4 flex gap-3 overflow-x-auto pb-2">
+    {% if package.display_image %}
+    <button type="button" data-gallery-thumb="{{ package.display_image }}" data-gallery-alt="{{ package.title }}"
+            class="h-20 w-28 shrink-0 overflow-hidden rounded-2xl ring-2 ring-magenta">
+      <img src="{{ package.display_image }}" alt="" class="h-full w-full object-cover">
+    </button>
+    {% endif %}
+    {% for photo in package.gallery.all %}
+    <button type="button" data-gallery-thumb="{{ photo.display_image }}" data-gallery-alt="{{ photo.caption }}"
+            class="h-20 w-28 shrink-0 overflow-hidden rounded-2xl border border-white/10 transition hover:border-white/40">
+      <img src="{{ photo.display_image }}" alt="{{ photo.caption }}" loading="lazy" class="h-full w-full object-cover">
+    </button>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+
+<section class="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+  <div class="grid gap-12 lg:grid-cols-[1.7fr_1fr]">
+
+    {# ---------- Left column ---------- #}
+    <div class="min-w-0">
+      <p class="text-lg leading-relaxed text-cream/85" data-reveal>{{ package.summary }}</p>
+      <div class="prose prose-invert mt-6 max-w-none text-mist" data-reveal>{{ package.description|linebreaks }}</div>
+
+      {% if package.highlight_list %}
+      <div class="mt-10 grid gap-3 sm:grid-cols-2" data-reveal>
+        {% for highlight in package.highlight_list %}
+        <div class="glass flex items-start gap-3 rounded-2xl p-4 text-sm">
+          <span class="mt-0.5 text-magenta">✦</span><span>{{ highlight }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {# ---------- Itinerary ---------- #}
+      {% if package.itinerary.all %}
+      <div class="mt-16" id="itinerary">
+        <h2 class="font-display text-[var(--step-2)]" data-reveal>Day by day</h2>
+        <div class="timeline mt-8">
+          {% for day in package.itinerary.all %}
+          <div class="relative pb-9" data-reveal data-reveal-delay="{{ forloop.counter0 }}0">
+            <span class="timeline-dot">{{ day.day_number }}</span>
+            <h3 class="font-display text-lg">{{ day.title }}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mist">{{ day.description }}</p>
+            {% if day.meals or day.stay %}
+            <div class="mt-3 flex flex-wrap gap-2 text-[11px] text-mist">
+              {% if day.meals %}<span class="rounded-full border border-white/10 px-3 py-1">🍽 {{ day.meals }}</span>{% endif %}
+              {% if day.stay %}<span class="rounded-full border border-white/10 px-3 py-1">🛏 {{ day.stay }}</span>{% endif %}
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {# ---------- Inclusions ---------- #}
+      {% if package.inclusion_list or package.exclusion_list %}
+      <div class="mt-14 grid gap-6 sm:grid-cols-2">
+        {% if package.inclusion_list %}
+        <div class="glass rounded-4xl p-7" data-reveal>
+          <h3 class="font-display text-lg">What's included</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-mist">
+            {% for item in package.inclusion_list %}
+            <li class="flex gap-2.5"><span class="text-mint">✓</span>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% if package.exclusion_list %}
+        <div class="glass rounded-4xl p-7" data-reveal>
+          <h3 class="font-display text-lg">Not included</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-mist">
+            {% for item in package.exclusion_list %}
+            <li class="flex gap-2.5"><span class="text-magenta">✕</span>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {# ---------- Reviews ---------- #}
+      <div class="mt-16" id="reviews">
+        <h2 class="font-display text-[var(--step-2)]" data-reveal>Reviews</h2>
+
+        {% if review_count %}
+        <div class="glass mt-7 grid gap-8 rounded-4xl p-7 sm:grid-cols-[auto_1fr]" data-reveal>
+          <div class="text-center sm:text-left">
+            <p class="font-display text-5xl">{{ rating_average|floatformat:1 }}</p>
+            <p class="mt-1 text-amber">{{ rating_average|stars }}</p>
+            <p class="mt-1 text-xs text-mist">{{ review_count }} review{{ review_count|pluralize }}</p>
+          </div>
+          <div class="space-y-2">
+            {% for row in rating_breakdown %}
+            <div class="flex items-center gap-3 text-xs">
+              <span class="w-8 text-mist">{{ row.stars }}★</span>
+              <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-white/8">
+                <div class="h-full rounded-full bg-gradient-to-r from-amber to-magenta" style="width: {{ row.percent }}%"></div>
+              </div>
+              <span class="w-8 text-right text-mist">{{ row.count }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="mt-7 space-y-4">
+          {% for review in reviews %}
+          <article class="glass rounded-4xl p-6" data-reveal>
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-violet to-magenta text-xs font-bold">{{ review.user.initials }}</span>
+                <div>
+                  <p class="text-sm font-semibold">{{ review.user.display_name }}</p>
+                  <p class="text-[11px] text-mist">
+                    {{ review.created_at|date:"j M Y" }}
+                    {% if review.is_verified %}<span class="ml-1 text-mint">· verified trip</span>{% endif %}
+                  </p>
+                </div>
+              </div>
+              <span class="text-amber">{{ review.star_string }}</span>
+            </div>
+            <h3 class="mt-4 font-display text-base">{{ review.title }}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-mist">{{ review.comment }}</p>
+          </article>
+          {% empty %}
+          <p class="text-sm text-mist">No reviews yet. If you've been, you'd be the first.</p>
+          {% endfor %}
+        </div>
+
+        {# ---------- Write a review ---------- #}
+        <div class="glass-strong mt-8 rounded-4xl p-7" id="write-review">
+          {% if user.is_authenticated %}
+            {% if user_review %}
+              <h3 class="font-display text-lg">Your review</h3>
+              <p class="mt-2 text-sm text-mist">
+                You rated this {{ user_review.rating }} out of 5.
+                {% if not user_review.is_approved %}It's with our team and goes live once checked.{% endif %}
+              </p>
+              <form method="post" action="{% url 'reviews:delete' user_review.pk %}" class="mt-4">
+                {% csrf_token %}
+                <button class="btn btn-ghost text-sm">Delete review</button>
+              </form>
+            {% else %}
+              <h3 class="font-display text-lg">Been on this trip?</h3>
+              <p class="mt-1 text-sm text-mist">Tell other travellers what it was actually like.</p>
+              <form method="post" action="{% url 'reviews:submit' package.slug %}" class="mt-6 space-y-5">
+                {% csrf_token %}
+                <fieldset>
+                  <legend class="mb-2 text-sm text-mist">Your rating</legend>
+                  <div class="star-input">
+                    {% for value, label in review_form.fields.rating.choices %}
+                    <input type="radio" name="rating" id="star-{{ value }}" value="{{ value }}" required>
+                    <label for="star-{{ value }}" title="{{ label }}"><span class="sr-only">{{ label }}</span></label>
+                    {% endfor %}
+                  </div>
+                </fieldset>
+                <div>
+                  <label for="{{ review_form.title.id_for_label }}" class="mb-2 block text-sm text-mist">Headline</label>
+                  {{ review_form.title }}
+                </div>
+                <div>
+                  <label for="{{ review_form.comment.id_for_label }}" class="mb-2 block text-sm text-mist">Your review</label>
+                  {{ review_form.comment }}
+                </div>
+                <button class="btn btn-primary text-sm">Post review</button>
+              </form>
+            {% endif %}
+          {% else %}
+            <h3 class="font-display text-lg">Been on this trip?</h3>
+            <p class="mt-2 text-sm text-mist">
+              <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="text-magenta underline">Sign in</a> to write a review.
+            </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {# ---------- Booking panel ---------- #}
+    <aside class="lg:sticky lg:top-24 lg:h-max">
+      <div class="glass-strong rounded-4xl p-7 shadow-2xl shadow-violet/15" data-reveal>
+        <div class="flex items-end justify-between">
+          <div>
+            {% if package.is_discounted %}
+            <span class="text-sm text-mist line-through">{{ package.price|money }}</span>
+            {% endif %}
+            <p class="font-display text-4xl text-mint">{{ package.current_price|money }}</p>
+            <p class="text-xs text-mist">per person</p>
+          </div>
+          <span class="rounded-full border border-white/12 px-3 py-1 text-[11px] text-mist">{{ package.get_difficulty_display|truncatewords:1 }}</span>
+        </div>
+
+        <dl class="mt-6 space-y-3 border-t border-white/8 pt-6 text-sm">
+          <div class="flex justify-between"><dt class="text-mist">Trip length</dt><dd>{{ package.duration_days }} days, {{ package.duration_nights }} nights</dd></div>
+          <div class="flex justify-between"><dt class="text-mist">Group size</dt><dd>{{ package.min_guests }}–{{ package.max_guests }} guests</dd></div>
+          {% if package.available_to %}
+          <div class="flex justify-between"><dt class="text-mist">Runs until</dt><dd>{{ package.available_to|date:"j M Y" }}</dd></div>
+          {% endif %}
+          <div class="flex justify-between"><dt class="text-mist">Example: 2 guests</dt><dd class="font-semibold">{{ quote.total_amount|money }}</dd></div>
+        </dl>
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'bookings:checkout' package.slug %}" class="btn btn-primary magnetic mt-7 w-full">Check dates and book</a>
+        {% else %}
+        <a href="{% url 'accounts:login' %}?next={% url 'bookings:checkout' package.slug %}" class="btn btn-primary magnetic mt-7 w-full">Sign in to book</a>
+        {% endif %}
+        <p class="mt-3 text-center text-[11px] text-mist">Free cancellation until the departure date.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+{% if similar %}
+<section class="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
+  <h2 class="font-display text-[var(--step-2)]" data-reveal>More in {{ package.destination.name }}</h2>
+  <div class="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {% for item in similar %}
+      {% include "partials/trip_card.html" with package=item delay=forloop.counter0 %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

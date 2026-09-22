@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load travello_tags %}
+
+{% block og_image %}{% if destination.display_image %}<meta property="og:image" content="{{ destination.display_image }}">{% endif %}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TouristDestination",
+ "name":"{{ destination.name }}","description":"{{ destination.seo_description|escapejs }}",
+ "address":{"@type":"PostalAddress","addressCountry":"{{ destination.country }}"}}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="relative h-[70vh] min-h-[28rem] overflow-hidden">
+  <div class="absolute inset-0" data-parallax="0.25">
+    {% if destination.display_image %}
+      <img src="{{ destination.display_image }}" alt="{{ destination.name }}" class="h-[125%] w-full object-cover">
+    {% else %}
+      <div class="h-full w-full bg-gradient-to-br from-violet/50 via-magenta/30 to-amber/20"></div>
+    {% endif %}
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/70"></div>
+
+  <div class="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-14 lg:px-8">
+    <nav class="mb-5 text-xs text-mist" aria-label="Breadcrumb">
+      <a href="{% url 'core:home' %}" class="transition hover:text-cream">Home</a>
+      <span class="mx-2 opacity-40">/</span>
+      <a href="{% url 'destinations:destination_list' %}" class="transition hover:text-cream">Destinations</a>
+      <span class="mx-2 opacity-40">/</span>
+      <span class="text-cream">{{ destination.name }}</span>
+    </nav>
+    <p class="text-sm text-cream/70">{{ destination.country }}{% if destination.region %} · {{ destination.region }}{% endif %}</p>
+    <h1 class="mt-2 font-display text-[clamp(2.6rem,7vw,5rem)] leading-[0.95]">{{ destination.name }}</h1>
+    {% if destination.tagline %}
+    <p class="mt-4 max-w-xl text-lg text-cream/80">{{ destination.tagline }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+  <div class="grid gap-12 lg:grid-cols-[1.8fr_1fr]">
+    <div>
+      <h2 class="font-display text-[var(--step-2)]" data-reveal>About {{ destination.name }}</h2>
+      <div class="prose prose-invert mt-5 max-w-none text-mist" data-reveal>
+        {{ destination.description|linebreaks }}
+      </div>
+
+      {% if destination.gallery.all %}
+      <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3" data-reveal>
+        {% for photo in destination.gallery.all %}
+        <figure class="overflow-hidden rounded-3xl border border-white/10">
+          <img src="{{ photo.display_image }}" alt="{{ photo.caption|default:destination.name }}" loading="lazy"
+               class="h-44 w-full object-cover transition duration-700 hover:scale-105">
+        </figure>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <aside class="space-y-4">
+      <div class="glass-strong rounded-4xl p-7" data-reveal>
+        <h3 class="font-display text-lg">Good to know</h3>
+        <dl class="mt-5 space-y-4 text-sm">
+          {% if destination.best_time_to_visit %}
+          <div>
+            <dt class="text-mist">Best time to visit</dt>
+            <dd class="mt-0.5 font-medium">{{ destination.best_time_to_visit }}</dd>
+          </div>
+          {% endif %}
+          <div>
+            <dt class="text-mist">Trips available</dt>
+            <dd class="mt-0.5 font-medium">{{ packages|length }}</dd>
+          </div>
+          {% if destination.starting_price %}
+          <div>
+            <dt class="text-mist">Starting from</dt>
+            <dd class="mt-0.5 font-display text-2xl text-mint">{{ destination.starting_price|money }}</dd>
+          </div>
+          {% endif %}
+        </dl>
+      </div>
+
+      {% if nearby %}
+      <div class="glass rounded-4xl p-7" data-reveal>
+        <h3 class="font-display text-lg">Also in {{ destination.country }}</h3>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {% for place in nearby %}
+          <li><a href="{{ place.get_absolute_url }}" class="text-mist transition hover:text-cream">{{ place.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </aside>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
+  <h2 class="font-display text-[var(--step-2)]" data-reveal>Trips in {{ destination.name }}</h2>
+  <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {% for package in packages %}
+      {% include "partials/trip_card.html" with package=package delay=forloop.counter0|add:forloop.counter0 %}
+    {% empty %}
+      <div class="glass col-span-full rounded-4xl p-12 text-center">
+        <p class="font-display text-xl">No trips here just yet</p>
+        <p class="mt-2 text-sm text-mist">We're building them. Meanwhile, there's plenty elsewhere.</p>
+        <a href="{% url 'destinations:package_list' %}" class="btn btn-primary mt-6 text-sm">See all trips</a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

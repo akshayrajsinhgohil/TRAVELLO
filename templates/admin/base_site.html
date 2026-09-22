@@ -1,0 +1,51 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | Travello{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+  <a href="{% url 'admin:index' %}">🌍 Travello control room</a>
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  /* Tint Django admin with the Travello palette so staff stay in one world. */
+  :root {
+    --primary: #7C4DFF;
+    --secondary: #5B3BC4;
+    --accent: #FF4D8D;
+    --link-fg: #6a3df0;
+    --link-hover-color: #FF4D8D;
+    --header-bg: linear-gradient(100deg, #1D1438, #3A2270);
+    --header-color: #F6F1FF;
+    --header-branding-color: #FFB020;
+    --breadcrumbs-bg: #1D1438;
+    --breadcrumbs-fg: #A99FC9;
+    --button-bg: #7C4DFF;
+    --button-hover-bg: #FF4D8D;
+    --default-button-bg: #7C4DFF;
+    --default-button-hover-bg: #FF4D8D;
+    --object-tools-bg: #FF4D8D;
+    --object-tools-hover-bg: #7C4DFF;
+  }
+  #header { background: var(--header-bg); }
+  #site-name a { color: #F6F1FF; font-weight: 700; letter-spacing: -.02em; text-decoration: none; }
+  .module h2, .module caption { background: #2A1B52; }
+  div.breadcrumbs { background: var(--breadcrumbs-bg); color: var(--breadcrumbs-fg); }
+  .button, input[type=submit], input[type=button], .submit-row input {
+    border-radius: 999px; padding: 8px 18px; font-weight: 600;
+  }
+  .dashboard-banner {
+    margin: 0 0 18px; padding: 18px 22px; border-radius: 16px;
+    background: linear-gradient(100deg, #FF4D8D, #7C4DFF); color: #fff;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .dashboard-banner a {
+    background: rgba(255,255,255,.18); color: #fff; padding: 9px 18px;
+    border-radius: 999px; text-decoration: none; font-weight: 600; white-space: nowrap;
+  }
+  .dashboard-banner a:hover { background: rgba(255,255,255,.3); }
+</style>
+{% endblock %}

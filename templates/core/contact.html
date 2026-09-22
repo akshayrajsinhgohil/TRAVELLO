@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="relative pt-36 pb-24">
+  <div class="aurora left-1/4 top-10 h-80 w-80 bg-violet/35"></div>
+  <div class="relative mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-[1fr_1.2fr] lg:px-8">
+
+    <div>
+      <h1 class="font-display text-[var(--step-3)]">Talk to a person</h1>
+      <p class="mt-4 text-mist">Every message is read by someone on the travel team. We reply within one working day, usually sooner.</p>
+
+      <div class="mt-10 space-y-4">
+        <div class="glass rounded-3xl p-6">
+          <h2 class="font-display text-base">Already booked?</h2>
+          <p class="mt-1.5 text-sm text-mist">Have your reference handy (it starts with TRV) and we can pull everything up straight away.</p>
+        </div>
+        <div class="glass rounded-3xl p-6">
+          <h2 class="font-display text-base">Planning for a group?</h2>
+          <p class="mt-1.5 text-sm text-mist">Trips over the listed group size get custom pricing. Tell us the numbers and dates.</p>
+        </div>
+        <div class="glass rounded-3xl p-6">
+          <h2 class="font-display text-base">Hours</h2>
+          <p class="mt-1.5 text-sm text-mist">Monday to Saturday, 9am–7pm IST. Urgent issues during a trip are handled around the clock.</p>
+        </div>
+      </div>
+    </div>
+
+    <form method="post" class="glass-strong h-max rounded-5xl p-8">
+      {% csrf_token %}
+      <h2 class="font-display text-xl">Send a message</h2>
+      <div class="mt-7 grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="{{ form.name.id_for_label }}" class="mb-2 block text-sm text-mist">Your name</label>
+          {{ form.name }}
+          {% if form.name.errors %}<p class="form-errors">{{ form.name.errors.0 }}</p>{% endif %}
+        </div>
+        <div>
+          <label for="{{ form.email.id_for_label }}" class="mb-2 block text-sm text-mist">Email</label>
+          {{ form.email }}
+          {% if form.email.errors %}<p class="form-errors">{{ form.email.errors.0 }}</p>{% endif %}
+        </div>
+        <div>
+          <label for="{{ form.phone.id_for_label }}" class="mb-2 block text-sm text-mist">Phone (optional)</label>
+          {{ form.phone }}
+        </div>
+        <div>
+          <label for="{{ form.topic.id_for_label }}" class="mb-2 block text-sm text-mist">{{ form.topic.label }}</label>
+          {{ form.topic }}
+        </div>
+        <div class="sm:col-span-2">
+          <label for="{{ form.booking_reference.id_for_label }}" class="mb-2 block text-sm text-mist">{{ form.booking_reference.label }}</label>
+          {{ form.booking_reference }}
+        </div>
+        <div class="sm:col-span-2">
+          <label for="{{ form.message.id_for_label }}" class="mb-2 block text-sm text-mist">Message</label>
+          {{ form.message }}
+          {% if form.message.errors %}<p class="form-errors">{{ form.message.errors.0 }}</p>{% endif %}
+        </div>
+      </div>
+      <button class="btn btn-primary mt-7 w-full">Send message</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

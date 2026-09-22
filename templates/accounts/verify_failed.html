@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="mx-auto max-w-lg px-5 pb-24 pt-40 text-center lg:px-8">
+  <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-amber/15 text-3xl text-amber">!</div>
+  <h1 class="mt-6 font-display text-[var(--step-2)]">That link has expired</h1>
+  <p class="mt-4 text-mist">Confirmation links last three days. Sign in and we'll send you a fresh one.</p>
+  <div class="mt-8 flex justify-center gap-3">
+    {% if user.is_authenticated %}
+    <form method="post" action="{% url 'accounts:resend_verification' %}">
+      {% csrf_token %}
+      <button class="btn btn-primary">Send a new link</button>
+    </form>
+    {% else %}
+    <a href="{% url 'accounts:login' %}" class="btn btn-primary">Sign in</a>
+    {% endif %}
+    <a href="{% url 'core:home' %}" class="btn btn-ghost">Back home</a>
+  </div>
+</section>
+{% endblock %}

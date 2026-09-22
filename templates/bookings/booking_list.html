@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load travello_tags %}
+
+{% block content %}
+<section class="mx-auto max-w-5xl px-5 pb-24 pt-32 lg:px-8">
+  <h1 class="font-display text-[var(--step-3)]">Your bookings</h1>
+
+  <div class="mt-7 flex gap-2 text-sm">
+    <a href="?show=all" class="rounded-full px-4 py-2 transition {% if tab == 'all' %}bg-white/10 text-cream{% else %}text-mist hover:text-cream{% endif %}">Everything</a>
+    <a href="?show=upcoming" class="rounded-full px-4 py-2 transition {% if tab == 'upcoming' %}bg-white/10 text-cream{% else %}text-mist hover:text-cream{% endif %}">Upcoming</a>
+    <a href="?show=past" class="rounded-full px-4 py-2 transition {% if tab == 'past' %}bg-white/10 text-cream{% else %}text-mist hover:text-cream{% endif %}">Past</a>
+  </div>
+
+  <div class="mt-8 space-y-4">
+    {% for booking in bookings %}
+    <a href="{{ booking.get_absolute_url }}" class="glass edge-glow flex flex-col gap-5 rounded-4xl p-5 transition hover:border-white/25 sm:flex-row sm:items-center" data-reveal>
+      <div class="h-28 w-full shrink-0 overflow-hidden rounded-3xl sm:w-40">
+        {% if booking.package.display_image %}
+          <img src="{{ booking.package.display_image }}" alt="" loading="lazy" class="h-full w-full object-cover">
+        {% else %}
+          <div class="h-full w-full bg-gradient-to-br from-violet/40 to-magenta/25"></div>
+        {% endif %}
+      </div>
+      <div class="min-w-0 flex-1">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="rounded-full bg-{{ booking.status_tone }}/15 px-3 py-1 text-[11px] font-semibold text-{{ booking.status_tone }}">{{ booking.get_status_display }}</span>
+          <span class="text-[11px] text-mist">{{ booking.reference }}</span>
+        </div>
+        <h2 class="mt-2 font-display text-lg">{{ booking.package.title }}</h2>
+        <p class="mt-1 text-sm text-mist">{{ booking.start_date|date:"j M Y" }} – {{ booking.end_date|date:"j M Y" }} · {{ booking.guests }} guest{{ booking.guests|pluralize }}</p>
+      </div>
+      <div class="text-left sm:text-right">
+        <p class="font-display text-xl text-mint">{{ booking.total_amount|money }}</p>
+        <p class="text-[11px] text-mist">{{ booking.get_payment_status_display }}</p>
+      </div>
+    </a>
+    {% empty %}
+    <div class="glass rounded-4xl p-14 text-center">
+      <p class="font-display text-2xl">No bookings here yet</p>
+      <p class="mx-auto mt-3 max-w-sm text-sm text-mist">When you book a trip it shows up here with your reference and itinerary.</p>
+      <a href="{% url 'destinations:package_list' %}" class="btn btn-primary mt-7 text-sm">Find a trip</a>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% include "partials/pagination.html" %}
+</section>
+{% endblock %}

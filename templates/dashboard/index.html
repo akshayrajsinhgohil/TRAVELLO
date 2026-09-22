@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+{% load travello_tags humanize %}
+
+{% block content %}
+<section class="mx-auto max-w-7xl px-5 pb-24 pt-32 lg:px-8">
+
+  <div class="flex flex-wrap items-end justify-between gap-5">
+    <div>
+      <h1 class="font-display text-[var(--step-3)]">How Travello is doing</h1>
+      <p class="mt-2 text-mist">Everything below is live. Numbers cover paid bookings unless stated.</p>
+    </div>
+    <a href="/admin/" class="btn btn-ghost text-sm">Open Django admin</a>
+  </div>
+
+  {# ---------- Needs attention ---------- #}
+  <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <a href="/admin/reviews/review/?is_approved__exact=0" class="glass edge-glow rounded-3xl p-5 transition hover:border-white/25">
+      <p class="font-display text-3xl {% if needs_attention.unapproved_reviews %}text-amber{% endif %}">{{ needs_attention.unapproved_reviews }}</p>
+      <p class="mt-1 text-sm text-mist">review{{ needs_attention.unapproved_reviews|pluralize }} to moderate</p>
+    </a>
+    <a href="/admin/core/contactmessage/?is_resolved__exact=0" class="glass edge-glow rounded-3xl p-5 transition hover:border-white/25">
+      <p class="font-display text-3xl {% if needs_attention.unresolved_messages %}text-amber{% endif %}">{{ needs_attention.unresolved_messages }}</p>
+      <p class="mt-1 text-sm text-mist">support message{{ needs_attention.unresolved_messages|pluralize }} open</p>
+    </a>
+    <a href="/admin/bookings/booking/?status__exact=pending" class="glass edge-glow rounded-3xl p-5 transition hover:border-white/25">
+      <p class="font-display text-3xl {% if needs_attention.awaiting_payment %}text-magenta{% endif %}">{{ needs_attention.awaiting_payment }}</p>
+      <p class="mt-1 text-sm text-mist">booking{{ needs_attention.awaiting_payment|pluralize }} awaiting payment</p>
+    </a>
+    <div class="glass rounded-3xl p-5">
+      <p class="font-display text-3xl text-mint">{{ needs_attention.departing_soon }}</p>
+      <p class="mt-1 text-sm text-mist">departing in the next 7 days</p>
+    </div>
+  </div>
+
+  {# ---------- KPIs ---------- #}
+  <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="glass-strong rounded-4xl p-6" data-reveal>
+      <p class="text-xs text-mist">Revenue, all time</p>
+      <p class="mt-2 font-display text-3xl text-mint">{{ kpis.revenue_total|money }}</p>
+      <p class="mt-1 text-xs text-mist">{{ kpis.revenue_month|money }} this month</p>
+    </div>
+    <div class="glass-strong rounded-4xl p-6" data-reveal data-reveal-delay="80">
+      <p class="text-xs text-mist">Bookings</p>
+      <p class="mt-2 font-display text-3xl"><span data-count-to="{{ kpis.bookings_total }}">0</span></p>
+      <p class="mt-1 text-xs text-mist">{{ kpis.bookings_month }} this month</p>
+    </div>
+    <div class="glass-strong rounded-4xl p-6" data-reveal data-reveal-delay="160">
+      <p class="text-xs text-mist">Average booking value</p>
+      <p class="mt-2 font-display text-3xl">{{ kpis.avg_order|money }}</p>
+      <p class="mt-1 text-xs text-mist">{{ subscriber_count }} newsletter subscriber{{ subscriber_count|pluralize }}</p>
+    </div>
+    <div class="glass-strong rounded-4xl p-6" data-reveal data-reveal-delay="240">
+      <p class="text-xs text-mist">Travellers</p>
+      <p class="mt-2 font-display text-3xl"><span data-count-to="{{ kpis.travellers }}">0</span></p>
+      <p class="mt-1 text-xs text-mist">
+        {% if kpis.avg_rating %}{{ kpis.avg_rating|floatformat:1 }}★ average rating{% else %}No ratings yet{% endif %}
+      </p>
+    </div>
+  </div>
+
+  {# ---------- Charts ---------- #}
+  <div class="mt-6 grid gap-5 lg:grid-cols-[1.6fr_1fr]">
+    <div class="glass-strong rounded-4xl p-7">
+      <h2 class="font-display text-lg">Revenue and bookings, last 12 months</h2>
+      <div class="mt-6 h-72"><canvas id="revenue-chart"></canvas></div>
+    </div>
+    <div class="glass-strong rounded-4xl p-7">
+      <h2 class="font-display text-lg">Bookings by status</h2>
+      <div class="mt-6 h-72"><canvas id="status-chart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="mt-5 grid gap-5 lg:grid-cols-[1fr_1.2fr]">
+    <div class="glass-strong rounded-4xl p-7">
+      <h2 class="font-display text-lg">Revenue by destination</h2>
+      <div class="mt-6 h-72"><canvas id="destination-chart"></canvas></div>
+    </div>
+
+    <div class="glass-strong rounded-4xl p-7">
+      <h2 class="font-display text-lg">Best selling trips</h2>
+      <table class="mt-5 w-full text-sm">
+        <thead class="text-xs text-mist">
+          <tr class="border-b border-white/8">
+            <th class="pb-3 text-left font-medium">Trip</th>
+            <th class="pb-3 text-right font-medium">Sold</th>
+            <th class="pb-3 text-right font-medium">Revenue</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for trip in top_trips %}
+          <tr class="border-b border-white/5">
+            <td class="py-3 pr-3">
+              <a href="{{ trip.get_absolute_url }}" class="transition hover:text-magenta">{{ trip.title|truncatechars:40 }}</a>
+              <span class="block text-xs text-mist">{{ trip.destination.name }}</span>
+            </td>
+            <td class="py-3 text-right">{{ trip.sold }}</td>
+            <td class="py-3 text-right text-mint">{{ trip.earned|money }}</td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="3" class="py-8 text-center text-mist">No paid bookings yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  {# ---------- Recent activity ---------- #}
+  <div class="mt-5 grid gap-5 lg:grid-cols-[1.4fr_1fr]">
+    <div class="glass-strong rounded-4xl p-7">
+      <div class="flex items-center justify-between">
+        <h2 class="font-display text-lg">Latest bookings</h2>
+        <a href="/admin/bookings/booking/" class="text-xs text-mist transition hover:text-cream">Manage all</a>
+      </div>
+      <div class="mt-5 space-y-3">
+        {% for booking in recent_bookings %}
+        <div class="flex items-center justify-between gap-4 border-b border-white/5 pb-3 text-sm">
+          <div class="min-w-0">
+            <p class="truncate">{{ booking.package.title }}</p>
+            <p class="text-xs text-mist">{{ booking.full_name }} · {{ booking.reference }} · {{ booking.created_at|naturaltime }}</p>
+          </div>
+          <div class="shrink-0 text-right">
+            <p class="text-mint">{{ booking.total_amount|money }}</p>
+            <p class="text-xs text-mist">{{ booking.get_status_display }}</p>
+          </div>
+        </div>
+        {% empty %}
+        <p class="py-8 text-center text-sm text-mist">Nothing booked yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="space-y-5">
+      <div class="glass-strong rounded-4xl p-7">
+        <h2 class="font-display text-lg">Departing next</h2>
+        <div class="mt-5 space-y-3 text-sm">
+          {% for booking in departing_soon_list %}
+          <div class="flex items-center justify-between gap-3 border-b border-white/5 pb-3">
+            <div class="min-w-0">
+              <p class="truncate">{{ booking.package.title|truncatechars:30 }}</p>
+              <p class="text-xs text-mist">{{ booking.full_name }} · {{ booking.guests }} guest{{ booking.guests|pluralize }}</p>
+            </div>
+            <p class="shrink-0 text-xs text-mist">{{ booking.start_date|date:"j M" }}</p>
+          </div>
+          {% empty %}
+          <p class="py-6 text-center text-mist">Nothing on the calendar.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="glass-strong rounded-4xl p-7">
+        <div class="flex items-center justify-between">
+          <h2 class="font-display text-lg">Waiting for moderation</h2>
+          <a href="/admin/reviews/review/?is_approved__exact=0" class="text-xs text-mist transition hover:text-cream">Review</a>
+        </div>
+        <div class="mt-5 space-y-3 text-sm">
+          {% for review in pending_reviews %}
+          <div class="border-b border-white/5 pb-3">
+            <p class="flex items-center gap-2"><span class="text-amber">{{ review.star_string }}</span><span class="truncate">{{ review.title }}</span></p>
+            <p class="text-xs text-mist">{{ review.user.display_name }} on {{ review.package.title|truncatechars:26 }}</p>
+          </div>
+          {% empty %}
+          <p class="py-6 text-center text-mist">Nothing waiting. Nice.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_body %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  // Charts share the site palette so the dashboard reads as part of Travello.
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof Chart === "undefined") return;
+
+    Chart.defaults.color = "#A99FC9";
+    Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+    Chart.defaults.borderColor = "rgba(255,255,255,0.06)";
+
+    const months = {{ chart_months|safe }};
+    const revenue = {{ chart_revenue|safe }};
+    const bookings = {{ chart_bookings|safe }};
+
+    const revenueCanvas = document.getElementById("revenue-chart");
+    if (revenueCanvas) {
+      const context = revenueCanvas.getContext("2d");
+      const fill = context.createLinearGradient(0, 0, 0, 280);
+      fill.addColorStop(0, "rgba(255,77,141,0.45)");
+      fill.addColorStop(1, "rgba(255,77,141,0)");
+
+      new Chart(context, {
+        data: {
+          labels: months,
+          datasets: [
+            {
+              type: "line", label: "Revenue", data: revenue,
+              borderColor: "#FF4D8D", backgroundColor: fill,
+              fill: true, tension: 0.38, pointRadius: 3,
+              pointBackgroundColor: "#FF4D8D", yAxisID: "y",
+            },
+            {
+              type: "bar", label: "Bookings", data: bookings,
+              backgroundColor: "rgba(124,77,255,0.5)", borderRadius: 6,
+              yAxisID: "y1", barThickness: 14,
+            },
+          ],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          interaction: { mode: "index", intersect: false },
+          plugins: { legend: { labels: { usePointStyle: true, boxWidth: 8 } } },
+          scales: {
+            y: { position: "left", grid: { color: "rgba(255,255,255,0.05)" }, beginAtZero: true },
+            y1: { position: "right", grid: { display: false }, beginAtZero: true },
+            x: { grid: { display: false } },
+          },
+        },
+      });
+    }
+
+    const statusCanvas = document.getElementById("status-chart");
+    if (statusCanvas) {
+      new Chart(statusCanvas, {
+        type: "doughnut",
+        data: {
+          labels: {{ chart_status_labels|safe }},
+          datasets: [{
+            data: {{ chart_status_values|safe }},
+            backgroundColor: ["#35E0C2", "#FFB020", "#7C4DFF", "#FF4D8D", "#A99FC9"],
+            borderColor: "#150E2B", borderWidth: 3,
+          }],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, cutout: "62%",
+          plugins: { legend: { position: "bottom", labels: { usePointStyle: true, boxWidth: 8, padding: 14 } } },
+        },
+      });
+    }
+
+    const destinationCanvas = document.getElementById("destination-chart");
+    if (destinationCanvas) {
+      new Chart(destinationCanvas, {
+        type: "bar",
+        data: {
+          labels: {{ chart_destination_labels|safe }},
+          datasets: [{
+            label: "Revenue",
+            data: {{ chart_destination_values|safe }},
+            backgroundColor: "rgba(53,224,194,0.55)",
+            borderRadius: 8,
+          }],
+        },
+        options: {
+          indexAxis: "y",
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: "rgba(255,255,255,0.05)" }, beginAtZero: true },
+            y: { grid: { display: false } },
+          },
+        },
+      });
+    }
+  });
+</script>
+{% endblock %}

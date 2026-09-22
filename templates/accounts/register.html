@@ -1,0 +1,53 @@
+{% extends "accounts/auth_base.html" %}
+
+{% block aside_heading %}Make an account. Then make a plan.{% endblock %}
+
+{% block form_content %}
+<h1 class="font-display text-[var(--step-2)]">Create your account</h1>
+<p class="mt-2 text-sm text-mist">Takes about thirty seconds.</p>
+
+<form method="post" class="mt-8 space-y-5">
+  {% csrf_token %}
+  {% if form.non_field_errors %}
+  <div class="rounded-2xl border border-magenta/40 bg-magenta/10 p-4 text-sm">{{ form.non_field_errors }}</div>
+  {% endif %}
+
+  <div>
+    <label for="{{ form.first_name.id_for_label }}" class="mb-2 block text-sm text-mist">First name</label>
+    {{ form.first_name }}
+    {% if form.first_name.errors %}<p class="form-errors">{{ form.first_name.errors.0 }}</p>{% endif %}
+  </div>
+  <div>
+    <label for="{{ form.username.id_for_label }}" class="mb-2 block text-sm text-mist">Username</label>
+    {{ form.username }}
+    {% if form.username.errors %}<p class="form-errors">{{ form.username.errors.0 }}</p>{% endif %}
+  </div>
+  <div>
+    <label for="{{ form.email.id_for_label }}" class="mb-2 block text-sm text-mist">Email</label>
+    {{ form.email }}
+    {% if form.email.errors %}<p class="form-errors">{{ form.email.errors.0 }}</p>{% endif %}
+  </div>
+  <div>
+    <label for="{{ form.password1.id_for_label }}" class="mb-2 block text-sm text-mist">Password</label>
+    {{ form.password1 }}
+    {% if form.password1.errors %}<p class="form-errors">{{ form.password1.errors.0 }}</p>{% endif %}
+    <p class="mt-2 text-xs text-mist/70">At least 8 characters, and not something obvious.</p>
+  </div>
+  <div>
+    <label for="{{ form.password2.id_for_label }}" class="mb-2 block text-sm text-mist">Confirm password</label>
+    {{ form.password2 }}
+    {% if form.password2.errors %}<p class="form-errors">{{ form.password2.errors.0 }}</p>{% endif %}
+  </div>
+
+  <label class="flex items-start gap-3 text-sm text-mist">
+    {{ form.newsletter_opt_in }}
+    <span>Send me new trips and price drops</span>
+  </label>
+
+  <button type="submit" class="btn btn-primary w-full">Create account</button>
+</form>
+
+<p class="mt-7 text-center text-sm text-mist">
+  Already have one? <a href="{% url 'accounts:login' %}" class="text-magenta underline">Sign in</a>
+</p>
+{% endblock %}

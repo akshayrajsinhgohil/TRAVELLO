@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load travello_tags %}
+
+{% block content %}
+<section class="mx-auto max-w-6xl px-5 pb-24 pt-32 lg:px-8">
+  <ol class="flex items-center gap-3 text-xs text-mist">
+    <li class="flex items-center gap-2 text-cream"><span class="grid h-6 w-6 place-items-center rounded-full bg-magenta text-[11px] font-bold">1</span> Your details</li>
+    <li class="h-px w-8 bg-white/15"></li>
+    <li class="flex items-center gap-2"><span class="grid h-6 w-6 place-items-center rounded-full border border-white/15 text-[11px]">2</span> Payment</li>
+    <li class="h-px w-8 bg-white/15"></li>
+    <li class="flex items-center gap-2"><span class="grid h-6 w-6 place-items-center rounded-full border border-white/15 text-[11px]">3</span> Confirmed</li>
+  </ol>
+
+  <h1 class="mt-7 font-display text-[var(--step-3)]">Book {{ package.title }}</h1>
+  <p class="mt-3 text-mist">{{ package.destination.name }}, {{ package.destination.country }} · {{ package.duration_label }}</p>
+
+  <form id="booking-form" method="post" class="mt-10 grid gap-8 lg:grid-cols-[1.5fr_1fr]"
+        data-quote-url="{% url 'bookings:quote' package.slug %}" data-currency="{{ CURRENCY_SYMBOL }}">
+    {% csrf_token %}
+
+    <div class="space-y-6">
+      {% if form.non_field_errors %}
+      <div class="rounded-2xl border border-magenta/40 bg-magenta/10 p-4 text-sm">{{ form.non_field_errors }}</div>
+      {% endif %}
+
+      <fieldset class="glass-strong rounded-4xl p-7">
+        <legend class="font-display text-lg">When and who</legend>
+        <div class="mt-6 grid gap-5 sm:grid-cols-3">
+          <div class="sm:col-span-3">
+            <label for="{{ form.start_date.id_for_label }}" class="mb-2 block text-sm text-mist">{{ form.start_date.label }}</label>
+            {{ form.start_date }}
+            {% if form.start_date.errors %}<p class="form-errors">{{ form.start_date.errors.0 }}</p>{% endif %}
+            <p class="mt-2 text-xs text-mist">Your trip ends {{ package.duration_days|add:"-1" }} day{{ package.duration_days|add:"-1"|pluralize }} later.</p>
+          </div>
+          <div>
+            <label for="{{ form.adults.id_for_label }}" class="mb-2 block text-sm text-mist">Adults</label>
+            {{ form.adults }}
+            {% if form.adults.errors %}<p class="form-errors">{{ form.adults.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label for="{{ form.children.id_for_label }}" class="mb-2 block text-sm text-mist">Children</label>
+            {{ form.children }}
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="glass-strong rounded-4xl p-7">
+        <legend class="font-display text-lg">Who's travelling</legend>
+        <div class="mt-6 grid gap-5 sm:grid-cols-2">
+          <div class="sm:col-span-2">
+            <label for="{{ form.full_name.id_for_label }}" class="mb-2 block text-sm text-mist">{{ form.full_name.label }}</label>
+            {{ form.full_name }}
+            {% if form.full_name.errors %}<p class="form-errors">{{ form.full_name.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label for="{{ form.email.id_for_label }}" class="mb-2 block text-sm text-mist">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}<p class="form-errors">{{ form.email.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label for="{{ form.phone.id_for_label }}" class="mb-2 block text-sm text-mist">Phone</label>
+            {{ form.phone }}
+            {% if form.phone.errors %}<p class="form-errors">{{ form.phone.errors.0 }}</p>{% endif %}
+          </div>
+          <div class="sm:col-span-2">
+            <label for="{{ form.special_requests.id_for_label }}" class="mb-2 block text-sm text-mist">{{ form.special_requests.label }}</label>
+            {{ form.special_requests }}
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="glass-strong rounded-4xl p-7">
+        <legend class="font-display text-lg">Discount code</legend>
+        <div class="mt-5">
+          {{ form.coupon_code }}
+          {% if form.coupon_code.errors %}<p class="form-errors">{{ form.coupon_code.errors.0 }}</p>{% endif %}
+          <p data-quote-note class="mt-2 text-xs"></p>
+        </div>
+      </fieldset>
+    </div>
+
+    {# ---------- Live summary ---------- #}
+    <aside class="lg:sticky lg:top-24 lg:h-max">
+      <div class="glass-strong overflow-hidden rounded-4xl">
+        <div class="relative h-36">
+          {% if package.display_image %}
+            <img src="{{ package.display_image }}" alt="" class="h-full w-full object-cover">
+          {% else %}
+            <div class="h-full w-full bg-gradient-to-br from-violet/45 to-magenta/25"></div>
+          {% endif %}
+          <div class="absolute inset-0 bg-gradient-to-t from-ink2 to-transparent"></div>
+          <p class="absolute bottom-4 left-5 font-display text-lg">{{ package.title|truncatechars:38 }}</p>
+        </div>
+
+        <div class="p-7">
+          <dl class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <dt class="text-mist">{{ package.current_price|money }} × <span data-quote-guests>2</span> guests</dt>
+              <dd data-quote-base>{{ quote.base_amount|money }}</dd>
+            </div>
+            <div data-quote-discount-row class="flex justify-between text-mint {% if not quote.discount_amount %}hidden{% endif %}">
+              <dt>Discount</dt>
+              <dd data-quote-discount>−{{ quote.discount_amount|money }}</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-mist">Taxes and fees</dt>
+              <dd data-quote-tax>{{ quote.tax_amount|money }}</dd>
+            </div>
+          </dl>
+          <div class="mt-5 flex items-end justify-between border-t border-white/10 pt-5">
+            <span class="text-sm text-mist">Total</span>
+            <span data-quote-total class="font-display text-3xl text-mint">{{ quote.total_amount|money }}</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary magnetic mt-7 w-full">Continue to payment</button>
+          <p class="mt-3 text-center text-[11px] text-mist">Nothing is charged until the next step.</p>
+        </div>
+      </div>
+    </aside>
+  </form>
+</section>
+{% endblock %}

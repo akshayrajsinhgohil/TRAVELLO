@@ -1,0 +1,36 @@
+{% extends "accounts/auth_base.html" %}
+
+{% block aside_heading %}Welcome back. Where to next?{% endblock %}
+
+{% block form_content %}
+<h1 class="font-display text-[var(--step-2)]">Sign in</h1>
+<p class="mt-2 text-sm text-mist">Use your email or username.</p>
+
+<form method="post" class="mt-8 space-y-5">
+  {% csrf_token %}
+  {% if form.non_field_errors %}
+  <div class="rounded-2xl border border-magenta/40 bg-magenta/10 p-4 text-sm">
+    That combination didn't work. Check the email and password and try again.
+  </div>
+  {% endif %}
+  <input type="hidden" name="next" value="{{ request.GET.next }}">
+
+  <div>
+    <label for="{{ form.username.id_for_label }}" class="mb-2 block text-sm text-mist">{{ form.username.label }}</label>
+    {{ form.username }}
+  </div>
+  <div>
+    <div class="mb-2 flex items-center justify-between">
+      <label for="{{ form.password.id_for_label }}" class="text-sm text-mist">Password</label>
+      <a href="{% url 'accounts:password_reset' %}" class="text-xs text-magenta hover:underline">Forgot it?</a>
+    </div>
+    {{ form.password }}
+  </div>
+
+  <button type="submit" class="btn btn-primary w-full">Sign in</button>
+</form>
+
+<p class="mt-7 text-center text-sm text-mist">
+  New here? <a href="{% url 'accounts:register' %}" class="text-magenta underline">Create an account</a>
+</p>
+{% endblock %}

@@ -1,0 +1,63 @@
+# Render blueprint — push this repo, point Render at it, and it builds itself.
+# Everything below can also be clicked together in the Render dashboard.
+
+databases:
+  - name: travello-db
+    databaseName: travello
+    user: travello
+    plan: free
+
+services:
+  - type: web
+    name: travello
+    runtime: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 3 --timeout 60"
+    healthCheckPath: /
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true          # Render invents a strong one for you
+      - key: DEBUG
+        value: "False"
+      - key: WEB_CONCURRENCY
+        value: "3"
+      - key: PYTHON_VERSION
+        value: "3.12.3"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: travello-db
+          property: connectionString
+      # RENDER_EXTERNAL_HOSTNAME is injected automatically and appended to
+      # ALLOWED_HOSTS in settings.py, so there is nothing to set here.
+      - key: SITE_URL
+        sync: false                  # e.g. https://travello.onrender.com
+      - key: SITE_DOMAIN
+        sync: false                  # e.g. travello.onrender.com
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false                  # same as SITE_URL
+      - key: SECURE_SSL_REDIRECT
+        value: "True"
+
+      # Payments — leave as sandbox until you have real keys.
+      - key: PAYMENT_GATEWAY
+        value: sandbox
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+
+      # Email — without these, verification links print to the logs.
+      - key: EMAIL_HOST
+        sync: false
+      - key: EMAIL_HOST_USER
+        sync: false
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
+      - key: DEFAULT_FROM_EMAIL
+        value: "Travello <hello@travello.app>"
+
+      # Set to "True" for the very first deploy to load the demo catalogue,
+      # then delete the variable so later deploys don't re-run it.
+      - key: SEED_DEMO_DATA
+        sync: false

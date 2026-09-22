@@ -1,0 +1,86 @@
+{% load static travello_tags %}<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {# ---- SEO ---- #}
+  <title>{% block title %}{{ meta_title|default:SITE_NAME }}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{{ meta_description|default:SITE_TAGLINE }}{% endblock %}">
+  <link rel="canonical" href="{{ SITE_URL }}{{ request.path }}">
+  <meta name="theme-color" content="#0E0A1F">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ SITE_NAME }}">
+  <meta property="og:title" content="{{ meta_title|default:SITE_NAME }}">
+  <meta property="og:description" content="{{ meta_description|default:SITE_TAGLINE }}">
+  <meta property="og:url" content="{{ SITE_URL }}{{ request.path }}">
+  {% block og_image %}{% endblock %}
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+
+  {# ---- Type ---- #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  {# ---- Tailwind (Play CDN keeps development build-free; see README for the production build) ---- #}
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0E0A1F", ink2: "#150E2B", ink3: "#1D1438",
+            cream: "#F6F1FF", mist: "#A99FC9",
+            magenta: "#FF4D8D", violet: "#7C4DFF",
+            amber: "#FFB020", mint: "#35E0C2",
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', "sans-serif"],
+            sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+          },
+          borderRadius: { "4xl": "2rem", "5xl": "2.75rem" },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="{% static 'css/travello.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-ink text-cream antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-mint focus:px-5 focus:py-2 focus:text-ink focus:font-semibold">Skip to content</a>
+
+{% include "partials/nav.html" %}
+
+{# ---- Flash messages ---- #}
+{% if messages %}
+<div class="fixed left-1/2 top-24 z-[80] w-[min(92vw,30rem)] -translate-x-1/2 space-y-2" role="status" aria-live="polite">
+  {% for message in messages %}
+  <div class="glass-strong flex items-start gap-3 rounded-2xl px-5 py-4 text-sm shadow-2xl
+              {% if message.tags == 'error' %}border-magenta/40{% elif message.tags == 'success' %}border-mint/40{% endif %}"
+       data-reveal>
+    <span class="mt-0.5 text-lg leading-none">
+      {% if message.tags == 'success' %}<span class="text-mint">✓</span>
+      {% elif message.tags == 'error' %}<span class="text-magenta">!</span>
+      {% else %}<span class="text-amber">i</span>{% endif %}
+    </span>
+    <p class="flex-1 text-cream/90">{{ message }}</p>
+    <button type="button" class="text-mist transition hover:text-cream" onclick="this.closest('div').remove()" aria-label="Dismiss">✕</button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<main id="main" class="relative z-10">
+  {% block content %}{% endblock %}
+</main>
+
+{% include "partials/footer.html" %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+{% block extra_body %}{% endblock %}
+<script src="{% static 'js/travello.js' %}" defer></script>
+</body>
+</html>

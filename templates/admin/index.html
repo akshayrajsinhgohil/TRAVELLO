@@ -1,0 +1,15 @@
+{% extends "admin/index.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="dashboard-banner">
+  <div>
+    <strong style="font-size:16px">Looking for the numbers?</strong>
+    <div style="opacity:.9;font-size:13px;margin-top:2px">
+      Revenue, popular destinations and bookings that need attention live on the staff dashboard.
+    </div>
+  </div>
+  <a href="{% url 'dashboard:index' %}">Open dashboard →</a>
+</div>
+{{ block.super }}
+{% endblock %}

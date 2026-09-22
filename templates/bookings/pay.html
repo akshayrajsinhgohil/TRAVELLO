@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load travello_tags %}
+
+{% block content %}
+<section class="mx-auto max-w-2xl px-5 pb-24 pt-32 lg:px-8">
+  <ol class="flex items-center gap-3 text-xs text-mist">
+    <li class="flex items-center gap-2"><span class="grid h-6 w-6 place-items-center rounded-full bg-white/10 text-[11px]">✓</span> Your details</li>
+    <li class="h-px w-8 bg-white/15"></li>
+    <li class="flex items-center gap-2 text-cream"><span class="grid h-6 w-6 place-items-center rounded-full bg-magenta text-[11px] font-bold">2</span> Payment</li>
+    <li class="h-px w-8 bg-white/15"></li>
+    <li class="flex items-center gap-2"><span class="grid h-6 w-6 place-items-center rounded-full border border-white/15 text-[11px]">3</span> Confirmed</li>
+  </ol>
+
+  <div class="glass-strong mt-8 rounded-5xl p-9">
+    <p class="text-xs text-mist">Booking {{ booking.reference }}</p>
+    <h1 class="mt-2 font-display text-[var(--step-2)]">{{ booking.package.title }}</h1>
+
+    <dl class="mt-7 space-y-3 border-y border-white/8 py-7 text-sm">
+      <div class="flex justify-between"><dt class="text-mist">Leaving</dt><dd>{{ booking.start_date|date:"l, j F Y" }}</dd></div>
+      <div class="flex justify-between"><dt class="text-mist">Returning</dt><dd>{{ booking.end_date|date:"l, j F Y" }}</dd></div>
+      <div class="flex justify-between"><dt class="text-mist">Guests</dt><dd>{{ booking.adults }} adult{{ booking.adults|pluralize }}{% if booking.children %}, {{ booking.children }} child{{ booking.children|pluralize:"ren" }}{% endif %}</dd></div>
+      {% if booking.discount_amount %}
+      <div class="flex justify-between text-mint"><dt>Discount{% if booking.coupon %} ({{ booking.coupon.code }}){% endif %}</dt><dd>−{{ booking.discount_amount|money }}</dd></div>
+      {% endif %}
+      <div class="flex justify-between"><dt class="text-mist">Taxes and fees</dt><dd>{{ booking.tax_amount|money }}</dd></div>
+    </dl>
+
+    <div class="mt-6 flex items-end justify-between">
+      <span class="text-sm text-mist">Amount due</span>
+      <span class="font-display text-4xl text-mint">{{ booking.total_amount|money }}</span>
+    </div>
+
+    {% if order.gateway == "sandbox" %}
+    <div class="mt-8 rounded-2xl border border-amber/30 bg-amber/8 p-5 text-sm">
+      <p class="font-semibold text-amber">Sandbox mode</p>
+      <p class="mt-1.5 text-mist">
+        No payment keys are configured, so this step simulates a successful payment.
+        Add your Razorpay or Stripe keys to <code class="rounded bg-white/10 px-1.5 py-0.5 text-xs">.env</code> to take real money.
+      </p>
+    </div>
+    {% endif %}
+
+    <form method="post" action="{% url 'bookings:callback' booking.reference %}" class="mt-8" id="payment-form">
+      {% csrf_token %}
+      <input type="hidden" name="order_id" value="{{ order.order_id }}">
+      <input type="hidden" name="payment_id" id="payment-id" value="{% if order.gateway == 'sandbox' %}sandbox_paid{% endif %}">
+      <input type="hidden" name="signature" id="payment-signature">
+      <button type="submit" id="pay-button" class="btn btn-mint magnetic w-full">
+        {% if order.gateway == "sandbox" %}Simulate payment of {{ booking.total_amount|money }}{% else %}Pay {{ booking.total_amount|money }}{% endif %}
+      </button>
+    </form>
+
+    <a href="{{ booking.package.get_absolute_url }}" class="mt-4 block text-center text-xs text-mist transition hover:text-cream">Back to the trip page</a>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_body %}
+{% if order.gateway == "razorpay" %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  // Razorpay's modal handles the card entry; we post its response back to
+  // Django, which verifies the signature before confirming the booking.
+  (function () {
+    var order = {{ order_json|safe }};
+    var form = document.getElementById("payment-form");
+    document.getElementById("pay-button").addEventListener("click", function (event) {
+      event.preventDefault();
+      new Razorpay({
+        key: order.key,
+        amount: order.amount,
+        currency: order.currency,
+        name: "{{ SITE_NAME }}",
+        description: "{{ booking.package.title|escapejs }}",
+        order_id: order.order_id,
+        prefill: { name: "{{ booking.full_name|escapejs }}", email: "{{ booking.email }}", contact: "{{ booking.phone }}" },
+        theme: { color: "#FF4D8D" },
+        handler: function (response) {
+          document.getElementById("payment-id").value = response.razorpay_payment_id;
+          document.getElementById("payment-signature").value = response.razorpay_signature;
+          form.submit();
+        },
+      }).open();
+    });
+  })();
+</script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Something broke{% endblock %}
+{% block content %}
+<section class="mx-auto max-w-xl px-5 pb-24 pt-40 text-center lg:px-8">
+  <p class="font-display text-[clamp(5rem,18vw,10rem)] leading-none text-gradient">500</p>
+  <h1 class="mt-4 font-display text-[var(--step-2)]">Our end, not yours</h1>
+  <p class="mt-4 text-mist">Something failed while loading this page. The team has been notified. If you were mid-booking, nothing was charged.</p>
+  <div class="mt-9 flex flex-wrap justify-center gap-3">
+    <a href="/" class="btn btn-primary">Back home</a>
+    <a href="/contact/" class="btn btn-ghost">Tell us what happened</a>
+  </div>
+</section>
+{% endblock %}
